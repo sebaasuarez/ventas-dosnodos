@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ventas.dosnodos.com.co/sitemap.xml
