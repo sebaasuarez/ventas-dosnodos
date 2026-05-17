@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#2F6BFF">
+  <meta name="theme-color" content="#2563EB">
 
   <title>Dos Nodos | Landing pages para negocios locales en Medellín</title>
   <meta name="description" content="Creamos landing pages profesionales conectadas a WhatsApp para negocios locales en Medellín. Diseño, textos, formulario y publicación rápida.">
@@ -30,9 +30,11 @@
   <meta name="twitter:image" content="https://ventas.dosnodos.com.co/assets/img/og-cover.svg">
   <meta name="twitter:image:alt" content="Dos Nodos — Landing pages conectadas a WhatsApp">
 
+  <link rel="icon" href="/assets/img/favicon.ico" sizes="any">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
+  <link rel="preload" as="image" href="/assets/img/logo-dosnodos.png" fetchpriority="high">
   <link rel="preload" as="style" href="/assets/css/styles.css">
   <link rel="stylesheet" href="/assets/css/styles.css">
 
@@ -42,6 +44,7 @@
     "@type": "ProfessionalService",
     "name": "Dos Nodos",
     "url": "https://ventas.dosnodos.com.co/",
+    "logo": "https://ventas.dosnodos.com.co/assets/img/logo-dosnodos.png",
     "image": "https://ventas.dosnodos.com.co/assets/img/og-cover.svg",
     "telephone": "+57 312 734 4026",
     "priceRange": "$$",
@@ -55,6 +58,7 @@
       "addressCountry": "CO"
     },
     "sameAs": [
+      "https://dosnodos.com.co/",
       "https://wa.me/573127344026"
     ]
   }
@@ -79,17 +83,27 @@
 
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
+  <!-- SVG symbols reutilizables (incluye watermark de marca para divisores) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="brand-grad" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#2563EB"/>
+        <stop offset="1" stop-color="#9333EA"/>
+      </linearGradient>
+      <symbol id="ico-nodes" viewBox="0 0 64 64">
+        <g fill="none" stroke="url(#brand-grad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 50 L26 36 L38 44 L48 22 L48 14"/>
+        </g>
+        <circle cx="16" cy="50" r="6.5" fill="#2563EB"/>
+        <circle cx="48" cy="14" r="6.5" fill="#9333EA"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Dos Nodos, inicio">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 40 40" width="32" height="32" focusable="false" aria-hidden="true">
-            <circle cx="12" cy="20" r="6" fill="#2F6BFF"/>
-            <circle cx="28" cy="20" r="6" fill="#FFB347"/>
-            <path d="M12 20 L28 20" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="brand-name">Dos Nodos</span>
+        <img src="/assets/img/logo-dosnodos.png" alt="Dos Nodos" width="170" height="86" class="brand-logo" decoding="async">
       </a>
 
       <nav class="site-nav" aria-label="Navegación principal">
@@ -161,38 +175,55 @@
         </div>
 
         <div class="hero-visual" aria-hidden="true">
+          <div class="hero-blob blob-a"></div>
+          <div class="hero-blob blob-b"></div>
+
           <div class="phone">
             <div class="phone-notch"></div>
             <div class="phone-screen">
-              <div class="mock-bar">
-                <span></span><span></span><span></span>
+              <div class="wa-header">
+                <span class="wa-avatar">
+                  <svg viewBox="0 0 24 24" width="14" height="14" focusable="false" aria-hidden="true">
+                    <use href="#ico-nodes"/>
+                  </svg>
+                </span>
+                <span class="wa-info">
+                  <strong>Tu negocio</strong>
+                  <small><i class="wa-online"></i> en línea</small>
+                </span>
               </div>
-              <div class="mock-hero">
-                <span class="mock-tag">Tu negocio</span>
-                <span class="mock-h1"></span>
-                <span class="mock-h1 short"></span>
-                <span class="mock-cta">Escríbenos por WhatsApp</span>
+              <div class="wa-thread" id="wa-thread">
+                <!-- Mensajes generados dinámicamente en bucle -->
               </div>
-              <div class="mock-cards">
-                <div class="mock-card"></div>
-                <div class="mock-card"></div>
-                <div class="mock-card"></div>
+              <div class="wa-input">
+                <span class="wa-field"></span>
+                <span class="wa-send" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14" focusable="false" aria-hidden="true">
+                    <path fill="currentColor" d="M2 21l21-9L2 3v7l15 2-15 2z"/>
+                  </svg>
+                </span>
               </div>
             </div>
           </div>
+
           <div class="wa-bubble">
             <svg viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true">
               <path fill="#fff" d="M19.05 4.91A10 10 0 0 0 2.2 17.34L1 23l5.79-1.52a10 10 0 0 0 4.99 1.27h.01A10 10 0 0 0 19.05 4.91Z"/>
             </svg>
-            <span>¡Hola! ¿En qué te ayudamos?</span>
+            <span>+1 contacto nuevo</span>
           </div>
-          <div class="hero-blob blob-a"></div>
-          <div class="hero-blob blob-b"></div>
         </div>
+      </div>
+
+      <div class="section-divider divider-flip" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+          <use href="#ico-nodes" x="0" y="0"/>
+        </svg>
       </div>
     </section>
 
     <section class="section section-problem" aria-labelledby="problem-title">
+      <span class="watermark watermark-tl" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
       <div class="container narrow">
         <span class="eyebrow eyebrow-muted">El problema</span>
         <h2 id="problem-title">Tu negocio puede estar perdiendo clientes por no tener una página clara</h2>
@@ -201,7 +232,14 @@
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true">
+      <span class="divider-line"></span>
+      <span class="divider-node"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
+      <span class="divider-line"></span>
+    </div>
+
     <section class="section section-solution" aria-labelledby="solution-title">
+      <span class="watermark watermark-br" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
       <div class="container">
         <div class="two-col">
           <div class="col-text">
@@ -226,7 +264,7 @@
                 <small>Mensaje + CTA</small>
               </div>
               <div class="card-mini">
-                <span class="dot dot-warm" aria-hidden="true"></span>
+                <span class="dot dot-purple" aria-hidden="true"></span>
                 <strong>Servicios</strong>
                 <small>Qué ofreces</small>
               </div>
@@ -241,7 +279,14 @@
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true">
+      <span class="divider-line"></span>
+      <span class="divider-node"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
+      <span class="divider-line"></span>
+    </div>
+
     <section class="section section-benefits" id="beneficios" aria-labelledby="benefits-title">
+      <span class="watermark watermark-tr" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
       <div class="container">
         <header class="section-head">
           <span class="eyebrow">Beneficios</span>
@@ -300,7 +345,14 @@
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true">
+      <span class="divider-line"></span>
+      <span class="divider-node"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
+      <span class="divider-line"></span>
+    </div>
+
     <section class="section section-niches" aria-labelledby="niches-title">
+      <span class="watermark watermark-bl" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
       <div class="container">
         <header class="section-head">
           <span class="eyebrow">Para quién</span>
@@ -321,7 +373,14 @@
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true">
+      <span class="divider-line"></span>
+      <span class="divider-node"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
+      <span class="divider-line"></span>
+    </div>
+
     <section class="section section-demos" id="demos" aria-labelledby="demos-title">
+      <span class="watermark watermark-tr" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
       <div class="container">
         <header class="section-head">
           <span class="eyebrow">Demos</span>
@@ -374,7 +433,14 @@
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true">
+      <span class="divider-line"></span>
+      <span class="divider-node"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
+      <span class="divider-line"></span>
+    </div>
+
     <section class="section section-plans" id="planes" aria-labelledby="plans-title">
+      <span class="watermark watermark-bl" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
       <div class="container">
         <header class="section-head">
           <span class="eyebrow">Planes</span>
@@ -453,7 +519,14 @@
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true">
+      <span class="divider-line"></span>
+      <span class="divider-node"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
+      <span class="divider-line"></span>
+    </div>
+
     <section class="section section-process" aria-labelledby="process-title">
+      <span class="watermark watermark-tl" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
       <div class="container">
         <header class="section-head">
           <span class="eyebrow">Proceso</span>
@@ -485,7 +558,14 @@
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true">
+      <span class="divider-line"></span>
+      <span class="divider-node"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
+      <span class="divider-line"></span>
+    </div>
+
     <section class="section section-trust" aria-labelledby="trust-title">
+      <span class="watermark watermark-br" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
       <div class="container">
         <div class="two-col">
           <div class="col-text">
@@ -508,7 +588,14 @@
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true">
+      <span class="divider-line"></span>
+      <span class="divider-node"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
+      <span class="divider-line"></span>
+    </div>
+
     <section class="section section-faq" aria-labelledby="faq-title">
+      <span class="watermark watermark-tr" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
       <div class="container narrow">
         <header class="section-head">
           <span class="eyebrow">Preguntas frecuentes</span>
@@ -547,6 +634,7 @@
     <section class="section section-cta" id="contacto" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta-card">
+          <span class="watermark watermark-cta" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ico-nodes"/></svg></span>
           <div class="cta-copy">
             <span class="eyebrow eyebrow-on-dark">Empecemos</span>
             <h2 id="cta-title">Tu negocio merece una página que sí ayude a vender</h2>
@@ -625,14 +713,7 @@
     <div class="container footer-grid">
       <div class="foot-brand">
         <a href="#top" class="brand brand-foot" aria-label="Dos Nodos, inicio">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="28" height="28" focusable="false" aria-hidden="true">
-              <circle cx="12" cy="20" r="6" fill="#2F6BFF"/>
-              <circle cx="28" cy="20" r="6" fill="#FFB347"/>
-              <path d="M12 20 L28 20" stroke="#FAFAF7" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="brand-name">Dos Nodos</span>
+          <img src="/assets/img/logo-dosnodos.png" alt="Dos Nodos" width="160" height="80" class="brand-logo brand-logo-foot" loading="lazy" decoding="async">
         </a>
         <p class="foot-claim">Conectamos tecnología con personas.</p>
         <p class="foot-loc">Medellín, Colombia</p>
