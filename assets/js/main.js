@@ -1,6 +1,6 @@
 /* =============================================
-   Dos Nodos · Landing de ventas
-   JS mínimo: WhatsApp, formulario, medición, UX, chat animado.
+   Dos Nodos · Landing
+   JS mínimo: WhatsApp, formulario, medición, chat animado.
    ============================================= */
 (function () {
   'use strict';
@@ -19,11 +19,10 @@
   window.dataLayer = window.dataLayer || [];
   function pushEvent(name, details) {
     if (!name) return;
-    const payload = Object.assign({
+    window.dataLayer.push(Object.assign({
       event: name,
       component: 'landing_ventas_dos_nodos'
-    }, details || {});
-    window.dataLayer.push(payload);
+    }, details || {}));
   }
 
   /* ---------- WhatsApp ---------- */
@@ -56,13 +55,11 @@
     });
   }
 
-  /* ---------- Header scroll state ---------- */
+  /* ---------- Header scroll ---------- */
   function wireHeaderScroll() {
     const header = document.querySelector('.site-header');
     if (!header) return;
-    const onScroll = function () {
-      header.classList.toggle('is-scrolled', window.scrollY > 8);
-    };
+    const onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
@@ -74,9 +71,7 @@
     if (!nav || !toggle) return;
     function close() { nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
     function open()  { nav.classList.add('is-open');    toggle.setAttribute('aria-expanded', 'true'); }
-    toggle.addEventListener('click', function () {
-      nav.classList.contains('is-open') ? close() : open();
-    });
+    toggle.addEventListener('click', function () { nav.classList.contains('is-open') ? close() : open(); });
     nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   }
@@ -84,8 +79,11 @@
   /* ---------- Reveal on scroll ---------- */
   function wireReveal() {
     if (!('IntersectionObserver' in window)) return;
-    const targets = document.querySelectorAll('.section .card, .section .plan, .section .demo-card, .section .steps li, .section .card-mini');
-    targets.forEach(function (el) { el.classList.add('reveal'); });
+    const targets = document.querySelectorAll('.ben, .demo, .plan, .step, .spec-sheet > div, .sol-list li, .faq details');
+    targets.forEach(function (el, i) {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (Math.min(i, 8) * 40) + 'ms';
+    });
     const io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -102,7 +100,6 @@
     const thread = document.getElementById('wa-thread');
     if (!thread) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      // Render estático con 3 burbujas
       thread.innerHTML =
         '<div class="wa-msg them" style="opacity:1;transform:none">Hola, vi su landing. ¿Cuánto cuesta una para mi café?<span class="wa-time">10:24</span></div>' +
         '<div class="wa-msg me"   style="opacity:1;transform:none">¡Hola! Desde $700.000. Te paso info.<span class="wa-time">10:24 <span class="wa-ticks">✓✓</span></span></div>' +
@@ -110,78 +107,49 @@
       return;
     }
 
-    // Guiones (loops infinitos). Mezcla negocios reales: café, tour, spa, barbería.
     const scripts = [
       [
-        { side: 'them', text: '¿Tienen tours por Guatapé?', delayBefore: 0,    typing: 700 },
-        { side: 'me',   text: '¡Sí! Plan completo $180.000 por persona 🚐', delayBefore: 600,  typing: 900 },
-        { side: 'them', text: 'Listo, somos 4 personas el sábado',         delayBefore: 700,  typing: 900 },
-        { side: 'me',   text: 'Reservado ✅ Te envío el punto de encuentro', delayBefore: 600,  typing: 1100 }
+        { side: 'them', text: '¿Tienen tours por Guatapé?',                  delayBefore: 0,    typing: 700 },
+        { side: 'me',   text: '¡Sí! Plan completo $180.000 por persona',     delayBefore: 600,  typing: 900 },
+        { side: 'them', text: 'Listo, somos 4 personas el sábado',           delayBefore: 700,  typing: 900 },
+        { side: 'me',   text: 'Reservado ✓ Te envío el punto de encuentro',  delayBefore: 600,  typing: 1100 }
       ],
       [
-        { side: 'them', text: 'Hola, ¿tienen mesa para 4 esta noche?',     delayBefore: 0,    typing: 800 },
-        { side: 'me',   text: '¡Hola! Sí, a las 8:00 pm 🍝',                delayBefore: 500,  typing: 700 },
-        { side: 'them', text: 'Perfecto, confirmamos 🙌',                  delayBefore: 700,  typing: 700 },
-        { side: 'me',   text: 'Reserva guardada a nombre tuyo',            delayBefore: 500,  typing: 900 }
+        { side: 'them', text: 'Hola, ¿tienen mesa para 4 esta noche?',       delayBefore: 0,    typing: 800 },
+        { side: 'me',   text: '¡Hola! Sí, a las 8:00 pm',                    delayBefore: 500,  typing: 700 },
+        { side: 'them', text: 'Perfecto, confirmamos',                       delayBefore: 700,  typing: 700 },
+        { side: 'me',   text: 'Reserva guardada a nombre tuyo',              delayBefore: 500,  typing: 900 }
       ],
       [
-        { side: 'them', text: '¿Hacen corte + barba hoy?',                 delayBefore: 0,    typing: 700 },
-        { side: 'me',   text: '¡Claro! Tenemos a las 4:30 pm 💈',           delayBefore: 600,  typing: 800 },
-        { side: 'them', text: 'Listo, ahí estoy',                          delayBefore: 600,  typing: 600 },
-        { side: 'me',   text: 'Agendado ✅ Te esperamos',                  delayBefore: 500,  typing: 800 }
+        { side: 'them', text: '¿Hacen corte + barba hoy?',                   delayBefore: 0,    typing: 700 },
+        { side: 'me',   text: '¡Claro! Tenemos a las 4:30 pm',                delayBefore: 600,  typing: 800 },
+        { side: 'them', text: 'Listo, ahí estoy',                            delayBefore: 600,  typing: 600 },
+        { side: 'me',   text: 'Agendado ✓ Te esperamos',                     delayBefore: 500,  typing: 800 }
       ],
       [
-        { side: 'them', text: '¿Cuánto cuesta el masaje descontracturante?', delayBefore: 0,  typing: 850 },
-        { side: 'me',   text: 'Desde $90.000 (60 min) 💆‍♀️',                 delayBefore: 600,  typing: 800 },
-        { side: 'them', text: 'Genial, agéndame para mañana',              delayBefore: 600,  typing: 700 },
-        { side: 'me',   text: '¡Hecho! 10:00 am, te llega recordatorio',   delayBefore: 500,  typing: 1000 }
+        { side: 'them', text: '¿Cuánto cuesta el masaje descontracturante?', delayBefore: 0,    typing: 850 },
+        { side: 'me',   text: 'Desde $90.000 (60 min)',                       delayBefore: 600,  typing: 800 },
+        { side: 'them', text: 'Genial, agéndame para mañana',                delayBefore: 600,  typing: 700 },
+        { side: 'me',   text: '¡Hecho! 10:00 am, te llega recordatorio',     delayBefore: 500,  typing: 1000 }
       ]
     ];
 
-    const VIEW_LINGER = 1900;   // pausa después de cada burbuja
-    const PAUSE_BETWEEN = 1400; // pausa al terminar un guion antes del clear
-    const MAX_VISIBLE = 4;      // burbujas máximas simultáneas
+    const VIEW_LINGER = 1900;
+    const PAUSE_BETWEEN = 1400;
+    const MAX_VISIBLE = 4;
     let scriptIdx = 0;
     let cancelled = false;
 
-    function now() { return Date.now(); }
     function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
-
     function makeTime() {
       const d = new Date();
-      const hh = String(d.getHours()).padStart(2, '0');
-      const mm = String(d.getMinutes()).padStart(2, '0');
-      return hh + ':' + mm;
+      return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
     }
-
-    function appendTyping() {
-      const el = document.createElement('div');
-      el.className = 'wa-typing';
-      el.innerHTML = '<span></span><span></span><span></span>';
-      thread.appendChild(el);
-      trimOverflow();
-      return el;
-    }
-
-    function appendMessage(side, text) {
-      const el = document.createElement('div');
-      el.className = 'wa-msg ' + side;
-      const ticks = side === 'me' ? ' <span class="wa-ticks">✓✓</span>' : '';
-      el.innerHTML = escapeHTML(text) +
-        '<span class="wa-time">' + makeTime() + ticks + '</span>';
-      thread.appendChild(el);
-      trimOverflow();
-      return el;
-    }
-
     function escapeHTML(s) {
-      return String(s)
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
-
     function trimOverflow() {
-      // Mantén la lista corta: si excede MAX_VISIBLE, retira los primeros con animación.
       const items = thread.querySelectorAll('.wa-msg, .wa-typing');
       const excess = items.length - MAX_VISIBLE;
       for (let i = 0; i < excess; i++) {
@@ -191,21 +159,33 @@
         setTimeout(function () { node.remove(); }, 320);
       }
     }
-
+    function appendTyping() {
+      const el = document.createElement('div');
+      el.className = 'wa-typing';
+      el.innerHTML = '<span></span><span></span><span></span>';
+      thread.appendChild(el);
+      trimOverflow();
+      return el;
+    }
+    function appendMessage(side, text) {
+      const el = document.createElement('div');
+      el.className = 'wa-msg ' + side;
+      const ticks = side === 'me' ? ' <span class="wa-ticks">✓✓</span>' : '';
+      el.innerHTML = escapeHTML(text) + '<span class="wa-time">' + makeTime() + ticks + '</span>';
+      thread.appendChild(el);
+      trimOverflow();
+      return el;
+    }
     async function clearAll() {
-      const items = thread.querySelectorAll('.wa-msg, .wa-typing');
-      items.forEach(function (n) { n.classList.add('leaving'); });
+      thread.querySelectorAll('.wa-msg, .wa-typing').forEach(function (n) { n.classList.add('leaving'); });
       await sleep(320);
       thread.innerHTML = '';
     }
-
     async function runScript(script) {
       for (let i = 0; i < script.length && !cancelled; i++) {
         const step = script[i];
         if (step.delayBefore) await sleep(step.delayBefore);
         if (cancelled) return;
-
-        // typing indicator (solo si hay tiempo de "escribir")
         let typing = null;
         if (step.typing) {
           typing = appendTyping();
@@ -215,12 +195,10 @@
           setTimeout(function () { typing && typing.remove(); }, 200);
           await sleep(120);
         }
-
         appendMessage(step.side, step.text);
         await sleep(VIEW_LINGER);
       }
     }
-
     async function loop() {
       while (!cancelled) {
         await runScript(scripts[scriptIdx]);
@@ -231,7 +209,6 @@
       }
     }
 
-    // Inicia solo cuando el hero entra en viewport y se pausa al salir
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -240,7 +217,6 @@
             cancelled = false;
             loop();
           } else if (!entry.isIntersecting && thread.dataset.running) {
-            // Pausamos limpiamente
             cancelled = true;
             delete thread.dataset.running;
           }
