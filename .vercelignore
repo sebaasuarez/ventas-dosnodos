@@ -1,0 +1,4 @@
+_opencode/
+.opencode/
+*.zip
+.DS_Store

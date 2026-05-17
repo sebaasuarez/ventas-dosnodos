@@ -1,54 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#F5F3FF"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1B3FCC"/>
+      <stop offset="1" stop-color="#142E99"/>
     </linearGradient>
-    <linearGradient id="brand" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0" stop-color="#2563EB"/>
-      <stop offset="1" stop-color="#9333EA"/>
-    </linearGradient>
-    <radialGradient id="purpleGlow" cx="0.15" cy="0.2" r="0.6">
-      <stop offset="0" stop-color="#9333EA" stop-opacity="0.30"/>
-      <stop offset="1" stop-color="#9333EA" stop-opacity="0"/>
+    <radialGradient id="glow1" cx="0.9" cy="0.05" r="0.6">
+      <stop offset="0" stop-color="#6E2BD9" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#6E2BD9" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="blueGlow" cx="0.85" cy="0.85" r="0.6">
-      <stop offset="0" stop-color="#2563EB" stop-opacity="0.30"/>
-      <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+    <radialGradient id="glow2" cx="0.05" cy="0.95" r="0.55">
+      <stop offset="0" stop-color="#1F4FCC" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#1F4FCC" stop-opacity="0"/>
     </radialGradient>
+    <pattern id="gridp" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#purpleGlow)"/>
-  <rect width="1200" height="630" fill="url(#blueGlow)"/>
+  <rect width="1200" height="630" fill="url(#gridp)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
 
-  <g transform="translate(80,90)">
-    <g transform="translate(0,0)">
-      <rect x="0" y="0" width="220" height="44" rx="22" fill="#2563EB" fill-opacity="0.10"/>
-      <text x="110" y="29" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600" fill="#2563EB" letter-spacing="2">DOS NODOS</text>
+  <g transform="translate(80,80)" font-family="ui-sans-serif, system-ui, sans-serif">
+    <text x="0" y="14" font-size="14" font-family="ui-monospace, monospace" fill="#B4F032" letter-spacing="3">00 · LANDING EXPRESS · MEDELLÍN</text>
+
+    <text x="0" y="130" font-size="72" font-weight="700" fill="#FFFFFF" letter-spacing="-2.5">Páginas web hechas</text>
+    <text x="0" y="210" font-size="72" font-weight="700" fill="#FFFFFF" letter-spacing="-2.5">para vender más por</text>
+
+    <g transform="translate(0, 226)">
+      <rect x="0" y="40" width="92" height="92" rx="20" fill="#5A2BAE"/>
+      <g transform="translate(46,86) scale(2.6) translate(-12,-12)">
+        <path fill="#B4F032" d="M19.05 4.91A10 10 0 0 0 2.2 17.34L1 23l5.79-1.52a10 10 0 0 0 4.99 1.27h.01A10 10 0 0 0 19.05 4.91Zm-7.27 15.3a8.31 8.31 0 0 1-4.23-1.16l-.3-.18-3.43.9.92-3.35-.2-.31a8.32 8.32 0 1 1 7.24 4.1Zm4.6-6.23c-.25-.13-1.48-.73-1.71-.82-.23-.08-.4-.13-.57.13-.16.25-.65.82-.8.99-.15.16-.3.18-.55.06-.25-.13-1.06-.39-2.02-1.24a7.55 7.55 0 0 1-1.4-1.73c-.14-.25-.02-.39.11-.51.11-.11.25-.3.38-.45.13-.15.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.13-.57-1.37-.78-1.88-.2-.49-.41-.42-.57-.43h-.49a.94.94 0 0 0-.68.31c-.23.25-.89.87-.89 2.12 0 1.25.92 2.46 1.05 2.62.13.16 1.81 2.76 4.38 3.87.61.27 1.09.43 1.46.55.61.2 1.17.17 1.62.1.49-.07 1.48-.6 1.69-1.18.21-.59.21-1.09.15-1.19-.06-.1-.23-.16-.48-.28Z"/>
+      </g>
+      <text x="120" y="124" font-size="72" font-weight="700" fill="#B4F032" letter-spacing="-2.5">WhatsApp.</text>
     </g>
 
-    <text x="0" y="140" font-family="Inter, system-ui, sans-serif" font-size="68" font-weight="800" fill="#111827" letter-spacing="-2">Landing pages para</text>
-    <text x="0" y="220" font-family="Inter, system-ui, sans-serif" font-size="68" font-weight="800" fill="#111827" letter-spacing="-2">negocios locales</text>
-    <text x="0" y="300" font-family="Inter, system-ui, sans-serif" font-size="68" font-weight="800" fill="url(#brand)" letter-spacing="-2">en Medellín.</text>
+    <text x="0" y="430" font-size="22" font-family="ui-sans-serif, system-ui, sans-serif" fill="#FFFFFF" fill-opacity="0.85">Diseño + textos + formulario + publicación · 3–5 días · Medellín</text>
 
-    <text x="0" y="370" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="500" fill="#4B5563">Conectadas a WhatsApp. Diseño + textos + formulario.</text>
-
-    <g transform="translate(0, 410)">
-      <rect x="0" y="0" width="340" height="64" rx="32" fill="url(#brand)"/>
-      <text x="170" y="42" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700" fill="#fff">Quiero mi landing</text>
+    <g transform="translate(0, 470)">
+      <rect x="0" y="0" width="280" height="56" rx="10" fill="#FFFFFF"/>
+      <text x="140" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#1530A6">Quiero mi landing →</text>
     </g>
   </g>
 
-  <g transform="translate(830,90)">
-    <g fill="none" stroke="url(#brand)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M40 380 L120 280 L210 340 L290 140 L290 60"/>
-    </g>
-    <circle cx="40" cy="380" r="34" fill="#2563EB"/>
-    <circle cx="290" cy="60" r="34" fill="#9333EA"/>
+  <g transform="translate(820,80)" font-family="ui-monospace, monospace" fill="#FFFFFF" fill-opacity="0.85" font-size="12" letter-spacing="2">
+    <text x="0" y="14">+    +    +    +</text>
+    <text x="0" y="34">DOS  ·  NODOS</text>
   </g>
 
-  <g transform="translate(820,460)">
-    <rect x="0" y="0" width="320" height="60" rx="24" fill="#25D366"/>
-    <text x="36" y="38" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="600" fill="#fff">¡Hola! ¿En qué te ayudamos?</text>
+  <g transform="translate(880,180)" stroke="#B4F032" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M40 280 L120 200 L210 250 L290 100 L290 40"/>
   </g>
+  <circle cx="920" cy="460" r="22" fill="#B4F032"/>
+  <circle cx="1170" cy="220" r="22" fill="#FFFFFF"/>
 </svg>
