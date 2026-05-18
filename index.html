@@ -38,8 +38,8 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
   <link rel="preload" as="image" href="/assets/img/logo-dosnodos.png" fetchpriority="high">
-  <link rel="preload" as="style" href="/assets/css/styles.css?v=4">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=4">
+  <link rel="preload" as="style" href="/assets/css/styles.css?v=5">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=5">
 
   <script type="application/ld+json">
   {
@@ -162,6 +162,11 @@
 
     <!-- ============ 00 — HERO (drenched) ============ -->
     <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+      </div>
       <div class="hero-grid">
         <div class="hero-copy">
           <div class="hero-meta">
@@ -380,7 +385,7 @@
       </div>
     </section>
 
-    <!-- ============ 04 — NICHOS (marquee) ============ -->
+    <!-- ============ 05 — NICHOS (static grid) ============ -->
     <section class="section section-niches" aria-labelledby="niches-title">
       <div class="container">
         <header class="section-head section-head-left">
@@ -388,44 +393,16 @@
           <h2 id="niches-title" class="display-h2">Si vendes por atención directa, esto es para ti.</h2>
           <p class="section-lead">Trabajamos con negocios locales que necesitan explicar mejor su oferta y recibir contactos sin fricción.</p>
         </header>
-      </div>
 
-      <div class="marquee" aria-hidden="true">
-        <ul class="marquee-track">
-          <li>Tours y experiencias turísticas</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Hostales y alojamientos pequeños</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Cafés &amp; restaurantes</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Spas &amp; estética</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Barberías</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Lavaderos</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Profesionales independientes</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Negocios locales en crecimiento</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-        </ul>
-        <ul class="marquee-track" aria-hidden="true">
-          <li>Tours y experiencias turísticas</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Hostales y alojamientos pequeños</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Cafés &amp; restaurantes</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Spas &amp; estética</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Barberías</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Lavaderos</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Profesionales independientes</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
-          <li>Negocios locales en crecimiento</li>
-          <li><svg width="14" height="14"><use href="#ico-nodes"/></svg></li>
+        <ul class="niches" role="list">
+          <li><span class="niches-icon" aria-hidden="true">🌄</span> Tours y experiencias turísticas</li>
+          <li><span class="niches-icon" aria-hidden="true">🛏️</span> Hostales y alojamientos pequeños</li>
+          <li><span class="niches-icon" aria-hidden="true">☕</span> Cafés y restaurantes</li>
+          <li><span class="niches-icon" aria-hidden="true">💆</span> Spas y estética</li>
+          <li><span class="niches-icon" aria-hidden="true">💈</span> Barberías</li>
+          <li><span class="niches-icon" aria-hidden="true">🧺</span> Lavaderos</li>
+          <li><span class="niches-icon" aria-hidden="true">👤</span> Profesionales independientes</li>
+          <li><span class="niches-icon" aria-hidden="true">🚀</span> Negocios locales en crecimiento</li>
         </ul>
       </div>
     </section>
@@ -541,9 +518,9 @@
           <article class="plan plan-basic">
             <header>
               <span class="plan-name">Básico</span>
-              <p class="plan-price"><span class="plan-from">Desde</span> <strong>$700.000</strong> <span class="plan-currency">COP</span></p>
+              <p class="plan-price"><span class="plan-from">Desde</span> <strong>$350.000</strong> <span class="plan-currency">COP</span></p>
             </header>
-            <p class="plan-tagline">Presencia clara y rápida para negocios que necesitan algo ya.</p>
+            <p class="plan-tagline">El paso de entrada para arrancar ya, sin comprometer presupuesto.</p>
             <ul class="plan-list">
               <li><svg width="14" height="14" aria-hidden="true"><use href="#ico-check"/></svg>Landing de una página</li>
               <li><svg width="14" height="14" aria-hidden="true"><use href="#ico-check"/></svg>Diseño responsive</li>
@@ -842,16 +819,16 @@
       <div class="foot-legal">
         <h2>Legal</h2>
         <ul>
-          <li><a href="#">Términos y condiciones</a></li>
-          <li><a href="#">Política de privacidad</a></li>
-          <li><a href="#">Tratamiento de datos</a></li>
+          <li><a href="/terminos.html">Términos y condiciones</a></li>
+          <li><a href="/privacidad.html">Política de privacidad</a></li>
+          <li><a href="/datos.html">Tratamiento de datos</a></li>
         </ul>
       </div>
     </div>
 
     <div class="container foot-bottom">
       <small>&copy; <span id="year"></span> Dos Nodos · <span class="mono">v.2026</span></small>
-      <small class="foot-build">Hecho en Medellín con cobalto y café.</small>
+      <small class="foot-build">Hecho con <span class="foot-heart" aria-label="amor">❤️</span> por <a href="https://dosnodos.com.co/" target="_blank" rel="noopener" class="foot-link">dosnodos.com.co</a></small>
     </div>
   </footer>
 
@@ -864,6 +841,6 @@
     <span class="sr-only">Escribir por WhatsApp</span>
   </a>
 
-  <script src="/assets/js/main.js?v=4" defer></script>
+  <script src="/assets/js/main.js?v=5" defer></script>
 </body>
 </html>

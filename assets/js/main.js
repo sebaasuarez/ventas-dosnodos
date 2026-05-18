@@ -311,6 +311,37 @@
     if (el) el.textContent = String(new Date().getFullYear());
   }
 
+  /* ---------- Smooth in-page navigation (without polluting URL with #) ---------- */
+  function wireSmoothNav() {
+    function go(target) {
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+    }
+    document.addEventListener('click', function (e) {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      if (a.hasAttribute('data-wa')) return;
+      const href = a.getAttribute('href');
+      if (!href || href.length < 2) return;
+      const id = href.slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      go(target);
+    });
+    if (location.hash && location.hash.length > 1) {
+      const id = location.hash.slice(1);
+      const target = document.getElementById(id);
+      if (target) {
+        setTimeout(function () {
+          target.scrollIntoView({ behavior: 'auto', block: 'start' });
+          try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+        }, 30);
+      }
+    }
+  }
+
   /* ---------- Scroll progress bar ---------- */
   function wireScrollProgress() {
     const bar = document.querySelector('.scroll-progress');
@@ -378,6 +409,7 @@
     wireForm();
     wireScrollProgress();
     wireStatCounters();
+    wireSmoothNav();
     setYear();
     pushEvent('view_landing_dos_nodos', { section: 'page' });
   }
