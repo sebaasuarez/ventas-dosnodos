@@ -311,6 +311,62 @@
     if (el) el.textContent = String(new Date().getFullYear());
   }
 
+  /* ---------- Scroll progress bar ---------- */
+  function wireScrollProgress() {
+    const bar = document.querySelector('.scroll-progress');
+    if (!bar) return;
+    let ticking = false;
+    function update() {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop;
+      const total = h.scrollHeight - h.clientHeight;
+      const pct = total > 0 ? Math.min(100, (scrolled / total) * 100) : 0;
+      bar.style.setProperty('--p', pct.toFixed(1) + '%');
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  }
+
+  /* ---------- Stat counters (count-up on enter view) ---------- */
+  function wireStatCounters() {
+    const nums = document.querySelectorAll('[data-count-to]');
+    if (!nums.length || !('IntersectionObserver' in window)) {
+      nums.forEach(function (el) { el.textContent = el.getAttribute('data-count-to') + (el.getAttribute('data-count-suffix') || ''); });
+      return;
+    }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      nums.forEach(function (el) { el.textContent = el.getAttribute('data-count-to') + (el.getAttribute('data-count-suffix') || ''); });
+      return;
+    }
+    function countUp(el) {
+      const target = parseFloat(el.getAttribute('data-count-to'));
+      const suffix = el.getAttribute('data-count-suffix') || '';
+      const duration = 1400;
+      const start = performance.now();
+      function step(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 4); // ease-out-quart
+        const value = Math.round(target * eased);
+        el.textContent = value + suffix;
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          countUp(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    nums.forEach(function (el) { io.observe(el); });
+  }
+
   /* ---------- Init ---------- */
   function init() {
     wirePresetWaLinks();
@@ -320,6 +376,8 @@
     wireReveal();
     wireChatAnimation();
     wireForm();
+    wireScrollProgress();
+    wireStatCounters();
     setYear();
     pushEvent('view_landing_dos_nodos', { section: 'page' });
   }
