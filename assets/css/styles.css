@@ -413,31 +413,18 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 
 .btn-primary {
   --btn-bg: var(--brand);
-  --btn-fg: white;
+  --btn-fg: #fff;
   position: relative;
   isolation: isolate;
 }
-.btn-primary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(120deg, transparent 30%, rgba(180,240,50,.55) 50%, transparent 70%);
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: opacity .25s var(--ease);
-  z-index: -1;
+.btn-primary:hover {
+  --btn-bg: var(--brand-strong);
+  --btn-fg: #fff;
+  box-shadow: 0 0 0 3px rgba(180,240,50,.35), 0 12px 28px -10px rgba(30,60,180,.45);
+  transform: translateY(-1px);
 }
-.btn-primary:hover { --btn-bg: var(--brand-strong); box-shadow: 0 10px 30px -12px rgba(30,60,180,.5); }
-.btn-primary:hover::after {
-  opacity: 1;
-  animation: btn-shine 1.1s var(--ease) forwards;
-}
-@keyframes btn-shine {
-  to { transform: translateX(100%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .btn-primary::after { display: none; }
+.btn-primary:focus-visible {
+  box-shadow: 0 0 0 3px rgba(180,240,50,.5), 0 12px 28px -10px rgba(30,60,180,.45);
 }
 
 .btn-secondary {
@@ -498,12 +485,62 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 .hero {
   position: relative;
   color: var(--on-cobalt);
-  background:
-    radial-gradient(900px 480px at 95% -10%, rgba(110,43,217,.45), transparent 60%),
-    radial-gradient(700px 400px at -10% 110%, rgba(27,63,204,.5), transparent 60%),
-    linear-gradient(180deg, var(--cobalt-1) 0%, var(--cobalt-2) 100%);
+  background: linear-gradient(180deg, var(--cobalt-1) 0%, var(--cobalt-2) 100%);
   overflow: hidden;
   padding: clamp(70px, 9vw, 120px) 0 clamp(56px, 8vw, 96px);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+.hero-orb-1 {
+  width: 560px; height: 560px;
+  background: #6E2BD9;
+  top: -160px; right: -120px;
+  opacity: .55;
+  animation: orb-drift-1 18s ease-in-out infinite;
+}
+.hero-orb-2 {
+  width: 460px; height: 460px;
+  background: #2563EB;
+  bottom: -140px; left: -120px;
+  opacity: .55;
+  animation: orb-drift-2 22s ease-in-out infinite;
+}
+.hero-orb-3 {
+  width: 360px; height: 360px;
+  background: #B4F032;
+  top: 30%; left: 35%;
+  opacity: .18;
+  animation: orb-drift-3 26s ease-in-out infinite;
+}
+@keyframes orb-drift-1 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(-80px, 60px, 0) scale(1.08); }
+  66% { transform: translate3d(60px, 120px, 0) scale(.95); }
+}
+@keyframes orb-drift-2 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(120px, -80px, 0) scale(1.1); }
+}
+@keyframes orb-drift-3 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  25% { transform: translate3d(60px, -40px, 0); }
+  50% { transform: translate3d(-50px, 30px, 0); }
+  75% { transform: translate3d(40px, 70px, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb { animation: none !important; }
 }
 .hero::before {
   /* grid blueprint */
@@ -516,6 +553,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   background-size: 64px 64px;
   background-position: -1px -1px;
   pointer-events: none;
+  z-index: 1;
 }
 .hero::after {
   /* corner crosshairs as design signature */
@@ -528,10 +566,11 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   color: rgba(255,255,255,.25);
   letter-spacing: 1em;
   pointer-events: none;
+  z-index: 1;
 }
 .hero-grid {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: var(--max-w);
   margin: 0 auto;
   padding-inline: var(--shell-pad);
@@ -1042,65 +1081,53 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 .ben-accent:hover { background: var(--cobalt-2); }
 
 /* ============================================
-   04 — NICHES (marquee)
+   05 — NICHES (static wall, all visible at once)
    ============================================ */
-.section-niches {
-  background: var(--paper-2);
-  padding-bottom: 0;
-}
-.section-niches .container { margin-bottom: clamp(32px, 5vw, 64px); }
+.section-niches { background: var(--paper-2); }
 
-.marquee {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  border-block: 1px solid var(--rule);
-  background: var(--ink);
-  color: var(--on-cobalt);
-  padding-block: 22px;
-  margin-bottom: var(--section-pad);
-  user-select: none;
-}
-.marquee::before, .marquee::after {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 80px;
-  z-index: 2;
-  pointer-events: none;
-}
-.marquee::before { left: 0; background: linear-gradient(90deg, var(--ink), transparent); }
-.marquee::after  { right: 0; background: linear-gradient(-90deg, var(--ink), transparent); }
-.marquee-track {
-  display: flex;
-  align-items: center;
-  gap: 36px;
+.niches {
   list-style: none;
   padding: 0;
   margin: 0;
-  flex-shrink: 0;
-  animation: marquee 38s linear infinite;
-  white-space: nowrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
-.marquee-track li {
+@media (min-width: 560px)  { .niches { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 880px)  { .niches { grid-template-columns: repeat(4, 1fr); } }
+.niches li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--paper-3);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.25;
+  transition: border-color .25s var(--ease), background .25s var(--ease), transform .25s var(--ease);
+}
+.niches li:hover {
+  background: #F4F5FB;
+  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+.niches-icon {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.6vw, 2.4rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--on-cobalt);
+  justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  flex-shrink: 0;
+  font-size: 1.15rem;
 }
-.marquee-track li svg {
-  color: var(--signal);
-  opacity: .8;
-}
-@keyframes marquee {
-  to { transform: translateX(-100%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-}
+.niches li:nth-child(2n) .niches-icon { background: rgba(110,43,217,.10); color: var(--accent); }
+.niches li:nth-child(4n) .niches-icon { background: rgba(180,240,50,.18); color: var(--signal-ink); }
 
 /* ============================================
    05 — DEMOS
@@ -1503,7 +1530,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   padding: clamp(20px, 3vw, 32px);
   border: 1px solid var(--rule);
 }
-.form-intro { color: var(--ink-2); margin: 0 0 14px; font-size: .95rem; }
+.form-intro { color: var(--ink); margin: 0 0 14px; font-size: 1rem; font-weight: 500; }
 .field { margin-bottom: 14px; }
 .field-row {
   display: grid;
@@ -1647,7 +1674,26 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   color: var(--on-cobalt-mute);
   font-size: .82rem;
 }
-.foot-build { font-family: var(--font-mono); }
+.foot-build { font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 6px; }
+.foot-heart {
+  display: inline-block;
+  animation: heart-beat 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes heart-beat {
+  0%, 28%, 100% { transform: scale(1); }
+  14% { transform: scale(1.18); }
+  42% { transform: scale(1.12); }
+}
+@media (prefers-reduced-motion: reduce) { .foot-heart { animation: none; } }
+.foot-link {
+  color: var(--signal);
+  text-decoration: underline;
+  text-decoration-color: rgba(180, 240, 50, .35);
+  text-underline-offset: 2px;
+  transition: text-decoration-color .2s var(--ease);
+}
+.foot-link:hover { text-decoration-color: var(--signal); }
 
 /* ============================================
    FAB WhatsApp
@@ -1915,6 +1961,91 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   font-size: .82rem;
   color: var(--ink-3);
 }
+
+/* ============================================
+   LEGAL PAGES (terminos / privacidad / datos)
+   ============================================ */
+.legal-page {
+  background: var(--paper);
+  padding-top: clamp(32px, 5vw, 64px);
+  padding-bottom: clamp(48px, 7vw, 96px);
+}
+.legal-page .container { max-width: 760px; }
+.legal-meta {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  color: var(--ink-3);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin: 0 0 28px;
+}
+.legal-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw + 1rem, 3.4rem);
+  letter-spacing: -.025em;
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+.legal-hero .kicker { margin-bottom: 14px; }
+.legal-content {
+  margin-top: 36px;
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+}
+.legal-content h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -.02em;
+  margin: 36px 0 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.legal-content h2 .legal-idx {
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--brand);
+  letter-spacing: .04em;
+}
+.legal-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 22px 0 8px;
+}
+.legal-content p, .legal-content li {
+  font-size: 1rem;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+.legal-content strong { color: var(--ink); font-weight: 600; }
+.legal-content ul, .legal-content ol {
+  padding-left: 22px;
+  margin: 0 0 14px;
+}
+.legal-content li { margin-bottom: 6px; }
+.legal-content a { color: var(--brand); }
+.legal-content a:hover { color: var(--brand-strong); }
+.legal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 36px;
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid var(--rule-2);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: .92rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .2s var(--ease), background .2s var(--ease);
+}
+.legal-back:hover { border-color: var(--ink); background: var(--paper-3); }
 
 /* ============================================
    Responsive tweaks
