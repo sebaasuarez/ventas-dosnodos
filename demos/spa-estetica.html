@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo spa · Landing para agenda y servicios | Dos Nodos</title>
+  <meta name="description" content="Demo funcional de landing para spa, estetica o barberia con servicios, agenda, prueba social y WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/demos/demo.css">
+</head>
+<body data-demo="spa">
+  <svg width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+  <div class="demo-shell">
+    <nav class="demo-nav"><div class="container nav-inner"><a class="brand-lockup" href="/"><img src="/assets/img/logo-dosnodos.png" alt="Dos Nodos"><span>Demo spa</span></a><div class="nav-actions"><a href="#servicios">Servicios</a><a href="https://wa.me/573127344026" class="btn btn-primary" data-demo-wa>Agendar <svg><use href="#i-arrow"/></svg></a></div></div></nav>
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow">Agenda premium</span>
+            <h1>Casa Luma Spa</h1>
+            <p class="hero-lead">Una experiencia digital serena para vender servicios de bienestar: carta clara, precios desde, rituales destacados y agenda directa por WhatsApp.</p>
+            <div class="hero-actions"><a href="#reservar" class="btn btn-primary">Agendar cita <svg><use href="#i-arrow"/></svg></a><a href="#servicios" class="btn btn-ghost">Ver servicios</a></div>
+            <div class="proof-strip"><div class="proof"><strong>+900</strong><span>Citas atendidas</span></div><div class="proof"><strong>60 min</strong><span>Ritual favorito</span></div><div class="proof"><strong>4 sedes</strong><span>Ejemplo escalable</span></div></div>
+          </div>
+          <div class="visual-card" aria-label="Imagen de referencia de spa"><div class="visual-topbar"><span class="status-pill">Citas hoy</span><span class="mini-price">Desde $90k</span></div><div class="ref-image spa-scene"><span class="leaf one"></span><span class="leaf two"></span><span class="leaf three"></span><span class="spa-bed"></span><div class="floating-panel"><strong>Ritual descontracturante</strong><span>Ambiente, duracion, beneficios y agenda en un solo flujo.</span></div></div></div>
+        </div>
+      </section>
+      <section class="section section-soft" id="servicios">
+        <div class="container">
+          <header class="section-head"><span class="eyebrow">Servicios</span><h2 class="section-title">La carta se siente tranquila y vendible.</h2><p>El copy evita sonar generico: cada servicio explica beneficio, duracion y para quien es.</p></header>
+          <div class="grid-3">
+            <article class="package-card"><span class="tag">Relajacion</span><h3>Ritual calma profunda</h3><p>Masaje de 60 minutos, aromaterapia y pausa de infusion al final.</p><div class="package-meta"><span class="price">$120k</span><a href="https://wa.me/573127344026" class="btn btn-dark" data-demo-wa data-message="Hola, quiero agendar el Ritual calma profunda de la demo spa.">Agendar</a></div></article>
+            <article class="package-card"><span class="tag">Estetica</span><h3>Facial luminosidad</h3><p>Limpieza, hidratacion y mascarilla segun tipo de piel.</p><div class="package-meta"><span class="price">$150k</span><a href="https://wa.me/573127344026" class="btn btn-dark" data-demo-wa data-message="Hola, quiero agendar el Facial luminosidad de la demo spa.">Agendar</a></div></article>
+            <article class="package-card"><span class="tag">Barberia</span><h3>Corte + ritual barba</h3><p>Servicio adaptable para barberias premium con agenda por profesional.</p><div class="package-meta"><span class="price">$75k</span><a href="https://wa.me/573127344026" class="btn btn-dark" data-demo-wa data-message="Hola, quiero una landing para corte y ritual de barba como la demo spa.">Consultar</a></div></article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container experience-layout" data-tabs>
+          <div><span class="eyebrow">Experiencia</span><h2 class="section-title">Cada detalle baja la ansiedad de agendar.</h2><p>Un spa vende confianza. Por eso la demo prioriza claridad, higiene visual, duracion, precio y expectativas.</p></div>
+          <div>
+            <div class="tabs" role="tablist" aria-label="Detalles de experiencia"><button class="tab-btn" role="tab" aria-selected="true" aria-controls="s1">Antes</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="s2">Durante</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="s3">Despues</button></div>
+            <div id="s1" class="tab-panel is-active" role="tabpanel"><h3>Eleccion guiada</h3><p>El visitante escoge por necesidad: descanso, piel, dolor muscular o cuidado personal.</p><ul><li>Preguntas frecuentes visibles</li><li>Precios desde sin letra pequena</li><li>WhatsApp con servicio seleccionado</li></ul></div>
+            <div id="s2" class="tab-panel" role="tabpanel"><h3>Ritual explicado</h3><p>La pagina describe duracion, productos, contraindicaciones y preparacion.</p><ul><li>Duracion exacta</li><li>Beneficios concretos</li><li>Fotos o referencias visuales por servicio</li></ul></div>
+            <div id="s3" class="tab-panel" role="tabpanel"><h3>Reagenda natural</h3><p>Se puede sumar recordatorio, recomendaciones y CTA para proxima visita.</p><ul><li>Indicaciones post-servicio</li><li>Paquetes mensuales</li><li>Gift cards o bonos</li></ul></div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-dark">
+        <div class="container grid-3">
+          <article class="feature-card"><svg><use href="#i-check"/></svg><h3>Agenda por servicio</h3><p>Los botones abren conversaciones distintas segun tratamiento, no un mensaje generico.</p></article>
+          <article class="feature-card"><svg><use href="#i-check"/></svg><h3>Prueba social elegante</h3><p>Testimonios cortos, protocolos y credenciales sin saturar la pagina.</p></article>
+          <article class="feature-card"><svg><use href="#i-check"/></svg><h3>Preparada para pauta</h3><p>Perfecta para campanas de Instagram con oferta, ubicacion y formulario.</p></article>
+        </div>
+      </section>
+      <section class="section" id="reservar">
+        <div class="container booking-grid">
+          <div class="booking-card"><span class="eyebrow">Agenda</span><h2 class="section-title">Cita lista para confirmar.</h2><form data-booking-form><div class="field"><label for="name">Nombre</label><input id="name" name="name" autocomplete="name" required></div><div class="field"><label for="phone">WhatsApp</label><input id="phone" name="phone" inputmode="tel" required></div><div class="field"><label for="interest">Servicio</label><select id="interest" name="interest" required><option>Ritual calma profunda</option><option>Facial luminosidad</option><option>Corte + ritual barba</option></select></div><div class="field"><label for="date">Fecha ideal</label><input id="date" name="date" type="date"></div><button class="btn btn-primary" type="submit">Abrir WhatsApp <svg><use href="#i-arrow"/></svg></button><p class="form-status" data-form-status></p></form></div>
+          <aside class="story-card"><h3>Ejemplo de conversacion</h3><div class="chat"><div class="bubble">Hola, quiero un masaje para tension de espalda.</div><div class="bubble me">Te recomendamos calma profunda de 60 min. Tenemos 5:30 pm.</div><div class="bubble">Perfecto, agendame.</div><div class="bubble me">Listo, te enviamos indicaciones antes de venir.</div></div></aside>
+        </div>
+      </section>
+    </main>
+    <footer class="footer-demo"><div class="container"><span>Demo creada por Dos Nodos para negocios locales.</span><a href="/">Volver a la landing</a></div></footer>
+  </div>
+  <script src="/demos/demo.js"></script>
+</body>
+</html>

@@ -1161,10 +1161,25 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 }
 .demo-thumb {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
   aspect-ratio: 5 / 4;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid var(--rule);
+  padding: 18px;
+  color: var(--on-cobalt);
+  text-decoration: none;
+  box-shadow: 0 20px 42px -30px rgba(20, 28, 68, .45);
+  transition: transform .24s var(--ease), box-shadow .24s var(--ease), border-color .24s var(--ease);
+}
+.demo-thumb:hover {
+  color: var(--on-cobalt);
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--brand) 44%, var(--rule));
+  box-shadow: 0 28px 58px -32px rgba(20, 28, 68, .58);
 }
 .demo-thumb::before,
 .demo-thumb::after {
@@ -1177,12 +1192,101 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   background-size: 24px 24px;
   mix-blend-mode: overlay;
 }
-.demo-tour { background: linear-gradient(135deg, #3A2BB0, #4C44D9); }
-.demo-tour::before { background: radial-gradient(closest-side at 30% 30%, var(--signal) 0%, transparent 30%); opacity: .25; }
-.demo-cafe { background: linear-gradient(135deg, #3F311F, #8E6B33); }
-.demo-cafe::before { background: radial-gradient(closest-side at 70% 40%, #EEDB6E 0%, transparent 35%); opacity: .35; }
-.demo-spa  { background: linear-gradient(135deg, #C8326B, #D75CA9); }
-.demo-spa::before { background: radial-gradient(closest-side at 40% 70%, #D6B5DE 0%, transparent 35%); opacity: .4; }
+.demo-tour {
+  background:
+    radial-gradient(circle at 18% 18%, #FFE08A 0 8%, transparent 9%),
+    linear-gradient(135deg, transparent 44%, #2B8E6D 45% 61%, transparent 62%) 0 70% / 70% 72% no-repeat,
+    linear-gradient(45deg, transparent 42%, #1F6D5E 43% 62%, transparent 63%) 80% 74% / 74% 74% no-repeat,
+    linear-gradient(180deg, #91DDE5, #F4E9B9 54%, #13443B 55%);
+}
+.demo-tour::before {
+  inset: auto 14px 18px 14px;
+  height: 42%;
+  border: 3px dashed rgba(255,255,255,.7);
+  border-left: 0;
+  border-bottom: 0;
+  border-radius: 0 120px 0 0;
+  transform: rotate(-7deg);
+  opacity: .9;
+}
+.demo-cafe {
+  background:
+    radial-gradient(circle at 24% 33%, #FFF5DE 0 18%, #E2BD7B 19% 23%, transparent 24%),
+    radial-gradient(circle at 76% 25%, #5D321D 0 11%, #FFF5DE 12% 17%, transparent 18%),
+    linear-gradient(145deg, #F4B45F, #FFF2D7 50%, #2F2118 51%);
+}
+.demo-cafe::before {
+  inset: auto 18px 18px;
+  height: 36%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(47,33,24,.96), rgba(47,33,24,.82));
+  opacity: 1;
+}
+.demo-spa  {
+  background:
+    radial-gradient(ellipse at 22% 34%, #D9B269 0 8%, transparent 9%),
+    radial-gradient(ellipse at 74% 32%, #88BFA1 0 16%, transparent 17%),
+    linear-gradient(145deg, #F7DDE7, #F9F5E8 54%, #DCEFE5);
+}
+.demo-spa::before {
+  inset: auto 12% 16% 12%;
+  height: 24%;
+  border-radius: 22px 22px 10px 10px;
+  background: #FFFDF8;
+  box-shadow: 0 20px 42px -30px rgba(25, 44, 40, .75);
+  opacity: 1;
+}
+.demo-browser-bar,
+.demo-preview-title,
+.demo-preview-meta {
+  position: relative;
+  z-index: 2;
+}
+.demo-browser-bar {
+  position: absolute;
+  inset: 12px 12px auto;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.72);
+  backdrop-filter: blur(8px);
+}
+.demo-browser-bar::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  background: #EB5A46;
+  transform: translateY(-50%);
+  box-shadow: 13px 0 0 #F2C94C, 26px 0 0 #25D366;
+}
+.demo-preview-title {
+  max-width: 12ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1;
+  text-shadow: 0 1px 16px rgba(0,0,0,.22);
+}
+.demo-preview-meta {
+  color: rgba(255,255,255,.82);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.demo-cafe .demo-preview-title,
+.demo-cafe .demo-preview-meta {
+  color: #FFF8ED;
+}
+.demo-spa .demo-preview-title,
+.demo-spa .demo-preview-meta {
+  color: #244438;
+  text-shadow: none;
+}
 
 .demo h3 {
   font-size: 1.25rem;

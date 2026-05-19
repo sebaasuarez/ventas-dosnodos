@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo restaurante · Landing con menu y reservas | Dos Nodos</title>
+  <meta name="description" content="Demo funcional de landing para cafes y restaurantes con menu, reservas, promociones y WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/demos/demo.css">
+</head>
+<body data-demo="cafe">
+  <svg width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+  <div class="demo-shell">
+    <nav class="demo-nav"><div class="container nav-inner"><a class="brand-lockup" href="/"><img src="/assets/img/logo-dosnodos.png" alt="Dos Nodos"><span>Demo restaurante</span></a><div class="nav-actions"><a href="#menu">Menu</a><a href="https://wa.me/573127344026" class="btn btn-primary" data-demo-wa>Reservar mesa <svg><use href="#i-arrow"/></svg></a></div></div></nav>
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow">Reservas y pedidos</span>
+            <h1>Brasa Once Cocina</h1>
+            <p class="hero-lead">Una pagina para que el comensal vea ambiente, platos destacados, horarios y reserve por WhatsApp sin perderse en redes sociales.</p>
+            <div class="hero-actions"><a href="#reservar" class="btn btn-primary">Reservar ahora <svg><use href="#i-arrow"/></svg></a><a href="#menu" class="btn btn-ghost">Ver menu</a></div>
+            <div class="proof-strip"><div class="proof"><strong>4.8</strong><span>Resenas Google</span></div><div class="proof"><strong>35</strong><span>Mesas por noche</span></div><div class="proof"><strong>12-10</strong><span>Horario continuo</span></div></div>
+          </div>
+          <div class="visual-card" aria-label="Imagen de referencia de restaurante"><div class="visual-topbar"><span class="status-pill">Cocina abierta</span><span class="mini-price">Menu desde $32k</span></div><div class="ref-image cafe-scene"><span class="plate"></span><span class="coffee-cup"></span><div class="menu-board"><span>Entrada + fuerte</span><span>Cocteles de casa</span><span>Brunch sabado</span><span>Reserva privada</span></div></div></div>
+        </div>
+      </section>
+      <section class="section section-soft" id="menu">
+        <div class="container experience-layout" data-tabs>
+          <div><span class="eyebrow">Menu digital</span><h2 class="section-title menu-title">Platos que se antojan antes del chat.</h2><p>La carta se arma para escanear rapido: destacados, precios desde y llamadas claras a reservar o pedir.</p></div>
+          <div>
+            <div class="tabs" role="tablist" aria-label="Categorias del menu"><button class="tab-btn" role="tab" aria-selected="true" aria-controls="m1">Fuertes</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="m2">Brunch</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="m3">Bebidas</button></div>
+            <div id="m1" class="tab-panel is-active" role="tabpanel"><h3>Fuegos de la casa</h3><p>Carnes, vegetales asados y arroces con porciones claras.</p><ul><li>Costilla lenta con glaseado de panela</li><li>Arroz cremoso de hongos</li><li>Pollo crocante con ensalada citrica</li></ul></div>
+            <div id="m2" class="tab-panel" role="tabpanel"><h3>Brunch de fin de semana</h3><p>Combos pensados para grupos y reservas tempranas.</p><ul><li>Tostada campesina con huevos</li><li>Pancakes de maiz dulce</li><li>Cafe filtrado incluido</li></ul></div>
+            <div id="m3" class="tab-panel" role="tabpanel"><h3>Bebidas y cocteles</h3><p>La landing puede conectar carta, promociones y happy hour.</p><ul><li>Soda de lulo y hierbabuena</li><li>Negroni de cafe</li><li>Limonada de coco</li></ul></div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <header class="section-head"><span class="eyebrow">Conversion</span><h2 class="section-title">Lo que necesita un restaurante local.</h2></header>
+          <div class="grid-3">
+            <article class="feature-card"><svg><use href="#i-check"/></svg><h3>Reservas simples</h3><p>Botones por franja horaria y mensaje prellenado para confirmar nombre, hora y personas.</p></article>
+            <article class="feature-card"><svg><use href="#i-check"/></svg><h3>Menu mantenible</h3><p>Bloques de platos que se pueden actualizar por temporadas, combos o eventos.</p></article>
+            <article class="feature-card"><svg><use href="#i-check"/></svg><h3>Direccion clara</h3><p>Ubicacion, parqueadero, horarios y redes como soporte, no como unico canal de venta.</p></article>
+          </div>
+        </div>
+      </section>
+      <section class="section section-dark">
+        <div class="container grid-3">
+          <article class="package-card"><span class="tag">Almuerzo</span><h3>Menu ejecutivo</h3><p>Ideal para captar busquedas cercanas y clientes de oficina.</p><div class="package-meta"><span class="price">$32k</span><a href="https://wa.me/573127344026" class="btn" data-demo-wa data-message="Hola, quiero preguntar por el menu ejecutivo de la demo restaurante.">Pedir</a></div></article>
+          <article class="package-card"><span class="tag">Cena</span><h3>Mesa para dos</h3><p>Reserva con coctel, entrada y recomendacion del chef.</p><div class="package-meta"><span class="price">$148k</span><a href="https://wa.me/573127344026" class="btn" data-demo-wa data-message="Hola, quiero reservar una mesa para dos como la demo restaurante.">Reservar</a></div></article>
+          <article class="package-card"><span class="tag">Eventos</span><h3>Grupo privado</h3><p>CTA para cumpleaños, cenas empresariales y activaciones.</p><div class="package-meta"><span class="price">Cotizar</span><a href="https://wa.me/573127344026" class="btn" data-demo-wa data-message="Hola, quiero cotizar una reserva de grupo como la demo restaurante.">Cotizar</a></div></article>
+        </div>
+      </section>
+      <section class="section" id="reservar">
+        <div class="container booking-grid">
+          <div class="booking-card"><span class="eyebrow">Reservas</span><h2 class="section-title">Tu mesa, por WhatsApp.</h2><form data-booking-form><div class="field"><label for="name">Nombre</label><input id="name" name="name" autocomplete="name" required></div><div class="field"><label for="phone">WhatsApp</label><input id="phone" name="phone" inputmode="tel" required></div><div class="field"><label for="interest">Interes</label><select id="interest" name="interest" required><option>Mesa para dos</option><option>Grupo privado</option><option>Pedido para llevar</option></select></div><div class="field"><label for="date">Fecha</label><input id="date" name="date" type="date"></div><button class="btn btn-primary" type="submit">Abrir WhatsApp <svg><use href="#i-arrow"/></svg></button><p class="form-status" data-form-status></p></form></div>
+          <aside class="story-card"><h3>Ejemplo de chat que recibe el negocio</h3><div class="chat"><div class="bubble">Hola, quiero mesa para 4 hoy a las 8:00 pm.</div><div class="bubble me">Claro, te confirmo disponibilidad y nombre de la reserva.</div><div class="bubble">Tambien queremos celebrar un cumpleanos.</div><div class="bubble me">Perfecto, dejamos nota para postre con vela.</div></div></aside>
+        </div>
+      </section>
+    </main>
+    <footer class="footer-demo"><div class="container"><span>Demo creada por Dos Nodos para negocios locales.</span><a href="/">Volver a la landing</a></div></footer>
+  </div>
+  <script src="/demos/demo.js"></script>
+</body>
+</html>
