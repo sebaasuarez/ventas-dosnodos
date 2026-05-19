@@ -1,0 +1,492 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-05-19 04:43:39",
+  "metadata": {
+    "site": "ventas.dosnodos.com.co",
+    "gtmPublicId": "GTM-KWSSCHFM",
+    "ga4MeasurementIdPlaceholder": "G-XXXXXXXXXX",
+    "instructions": [
+      "Importa o replica esta configuración en GTM-KWSSCHFM.",
+      "Reemplaza la variable Const - GA4 Measurement ID por el Measurement ID real de GA4.",
+      "Los eventos personalizados ya se envían a window.dataLayer desde la landing y las demos.",
+      "Publica el contenedor en GTM y valida en GA4 DebugView."
+    ]
+  },
+  "eventCatalog": [
+    {
+      "eventName": "view_landing_dos_nodos",
+      "ga4EventName": "view_landing_dos_nodos",
+      "source": "index.html",
+      "description": "Vista inicial de la landing principal.",
+      "parameters": ["component", "section"]
+    },
+    {
+      "eventName": "clic_whatsapp_header",
+      "ga4EventName": "generate_lead",
+      "source": "index.html",
+      "description": "Clic en CTA de WhatsApp del header.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "clic_whatsapp_hero",
+      "ga4EventName": "generate_lead",
+      "source": "index.html",
+      "description": "Clic en CTA principal del hero.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "clic_whatsapp_plan_basico",
+      "ga4EventName": "select_promotion",
+      "source": "index.html",
+      "description": "Clic en WhatsApp desde Plan Básico.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "clic_whatsapp_plan_pro",
+      "ga4EventName": "select_promotion",
+      "source": "index.html",
+      "description": "Clic en WhatsApp desde Plan Pro.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "clic_whatsapp_plan_premium",
+      "ga4EventName": "select_promotion",
+      "source": "index.html",
+      "description": "Clic en WhatsApp desde Plan Premium.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "clic_whatsapp_cta_final",
+      "ga4EventName": "generate_lead",
+      "source": "index.html",
+      "description": "Clic en CTA final de WhatsApp.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "clic_whatsapp_footer",
+      "ga4EventName": "generate_lead",
+      "source": "index.html",
+      "description": "Clic en WhatsApp desde footer.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "clic_whatsapp_fab",
+      "ga4EventName": "generate_lead",
+      "source": "index.html",
+      "description": "Clic en botón flotante de WhatsApp.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "clic_ver_planes",
+      "ga4EventName": "view_item_list",
+      "source": "index.html",
+      "description": "Clic para navegar a planes.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "clic_ver_demo",
+      "ga4EventName": "select_content",
+      "source": "index.html",
+      "description": "Clic para abrir una demo.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "clic_instagram",
+      "ga4EventName": "select_content",
+      "source": "index.html",
+      "description": "Clic hacia Instagram.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "clic_email",
+      "ga4EventName": "select_content",
+      "source": "index.html",
+      "description": "Clic en email.",
+      "parameters": ["component", "section", "cta_text"]
+    },
+    {
+      "eventName": "submit_form_contacto",
+      "ga4EventName": "generate_lead",
+      "source": "index.html",
+      "description": "Envío exitoso del formulario principal y apertura de WhatsApp.",
+      "parameters": ["component", "section", "tipo_negocio", "cta_text"]
+    },
+    {
+      "eventName": "view_demo_page",
+      "ga4EventName": "view_demo_page",
+      "source": "demos/demo.js",
+      "description": "Vista de una demo individual.",
+      "parameters": ["component", "demo_type", "page_title", "page_path"]
+    },
+    {
+      "eventName": "clic_demo_whatsapp",
+      "ga4EventName": "generate_lead",
+      "source": "demos/demo.js",
+      "description": "Clic en WhatsApp dentro de una demo.",
+      "parameters": ["component", "demo_type", "cta_text", "message_preset", "destination"]
+    },
+    {
+      "eventName": "select_demo_tab",
+      "ga4EventName": "select_content",
+      "source": "demos/demo.js",
+      "description": "Selección de una pestaña interactiva en una demo.",
+      "parameters": ["component", "demo_type", "tab_id", "tab_text"]
+    },
+    {
+      "eventName": "submit_demo_booking",
+      "ga4EventName": "generate_lead",
+      "source": "demos/demo.js",
+      "description": "Envío exitoso del formulario de una demo y apertura de WhatsApp.",
+      "parameters": ["component", "demo_type", "lead_interest", "has_date", "destination"]
+    }
+  ],
+  "containerVersion": {
+    "path": "accounts/6356083869/containers/252846699/versions/0",
+    "accountId": "6356083869",
+    "containerId": "252846699",
+    "containerVersionId": "0",
+    "container": {
+      "path": "accounts/6356083869/containers/252846699",
+      "accountId": "6356083869",
+      "containerId": "252846699",
+      "name": "ventas.dosnodos.com.co",
+      "publicId": "GTM-KWSSCHFM",
+      "usageContext": ["WEB"],
+      "fingerprint": "1779165408162",
+      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6356083869/containers/252846699/workspaces?apiLink=container",
+      "features": {
+        "supportUserPermissions": true,
+        "supportEnvironments": true,
+        "supportWorkspaces": true,
+        "supportGtagConfigs": false,
+        "supportBuiltInVariables": true,
+        "supportClients": false,
+        "supportFolders": true,
+        "supportTags": true,
+        "supportTemplates": true,
+        "supportTriggers": true,
+        "supportVariables": true,
+        "supportVersions": true,
+        "supportZones": true,
+        "supportTransformations": false
+      },
+      "tagIds": ["GTM-KWSSCHFM"]
+    },
+    "builtInVariable": [
+      {"accountId": "6356083869", "containerId": "252846699", "type": "PAGE_URL", "name": "Page URL"},
+      {"accountId": "6356083869", "containerId": "252846699", "type": "PAGE_HOSTNAME", "name": "Page Hostname"},
+      {"accountId": "6356083869", "containerId": "252846699", "type": "PAGE_PATH", "name": "Page Path"},
+      {"accountId": "6356083869", "containerId": "252846699", "type": "REFERRER", "name": "Referrer"},
+      {"accountId": "6356083869", "containerId": "252846699", "type": "EVENT", "name": "Event"}
+    ],
+    "variable": [
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "1",
+        "name": "Const - GA4 Measurement ID",
+        "type": "c",
+        "parameter": [{"type": "TEMPLATE", "key": "value", "value": "G-XXXXXXXXXX"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "2",
+        "name": "DLV - component",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "component"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "3",
+        "name": "DLV - section",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "section"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "4",
+        "name": "DLV - cta_text",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "cta_text"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "5",
+        "name": "DLV - tipo_negocio",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "tipo_negocio"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "6",
+        "name": "DLV - demo_type",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "demo_type"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "7",
+        "name": "DLV - page_title",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "page_title"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "8",
+        "name": "DLV - page_path",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "page_path"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "9",
+        "name": "DLV - destination",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "destination"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "10",
+        "name": "DLV - lead_interest",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "lead_interest"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "11",
+        "name": "DLV - has_date",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "has_date"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "12",
+        "name": "DLV - tab_id",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "tab_id"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "13",
+        "name": "DLV - tab_text",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "tab_text"}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "variableId": "14",
+        "name": "DLV - message_preset",
+        "type": "v",
+        "parameter": [{"type": "INTEGER", "key": "dataLayerVersion", "value": "2"}, {"type": "TEMPLATE", "key": "name", "value": "message_preset"}]
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "triggerId": "1",
+        "name": "CE - view_landing_dos_nodos",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{"type": "EQUALS", "parameter": [{"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"}, {"type": "TEMPLATE", "key": "arg1", "value": "view_landing_dos_nodos"}]}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "triggerId": "2",
+        "name": "CE - WhatsApp Lead Clicks",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{"type": "MATCH_REGEX", "parameter": [{"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"}, {"type": "TEMPLATE", "key": "arg1", "value": "^(clic_whatsapp_header|clic_whatsapp_hero|clic_whatsapp_cta_final|clic_whatsapp_footer|clic_whatsapp_fab|clic_demo_whatsapp)$"}]}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "triggerId": "3",
+        "name": "CE - Plan WhatsApp Clicks",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{"type": "MATCH_REGEX", "parameter": [{"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"}, {"type": "TEMPLATE", "key": "arg1", "value": "^(clic_whatsapp_plan_basico|clic_whatsapp_plan_pro|clic_whatsapp_plan_premium)$"}]}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "triggerId": "4",
+        "name": "CE - submit_form_contacto",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{"type": "EQUALS", "parameter": [{"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"}, {"type": "TEMPLATE", "key": "arg1", "value": "submit_form_contacto"}]}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "triggerId": "5",
+        "name": "CE - view_demo_page",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{"type": "EQUALS", "parameter": [{"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"}, {"type": "TEMPLATE", "key": "arg1", "value": "view_demo_page"}]}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "triggerId": "6",
+        "name": "CE - submit_demo_booking",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{"type": "EQUALS", "parameter": [{"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"}, {"type": "TEMPLATE", "key": "arg1", "value": "submit_demo_booking"}]}]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "triggerId": "7",
+        "name": "CE - Content Interactions",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{"type": "MATCH_REGEX", "parameter": [{"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"}, {"type": "TEMPLATE", "key": "arg1", "value": "^(clic_ver_planes|clic_ver_demo|clic_instagram|clic_email|select_demo_tab)$"}]}]
+      }
+    ],
+    "tag": [
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "tagId": "1",
+        "name": "GA4 Event - view_landing_dos_nodos",
+        "type": "gaawe",
+        "parameter": [
+          {"type": "TEMPLATE", "key": "measurementId", "value": "{{Const - GA4 Measurement ID}}"},
+          {"type": "TEMPLATE", "key": "eventName", "value": "view_landing_dos_nodos"},
+          {"type": "LIST", "key": "eventParameters", "list": [
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "component"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - component}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "section"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - section}}"}]}
+          ]}
+        ],
+        "firingTriggerId": ["1"]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "tagId": "2",
+        "name": "GA4 Event - generate_lead WhatsApp",
+        "type": "gaawe",
+        "parameter": [
+          {"type": "TEMPLATE", "key": "measurementId", "value": "{{Const - GA4 Measurement ID}}"},
+          {"type": "TEMPLATE", "key": "eventName", "value": "generate_lead"},
+          {"type": "LIST", "key": "eventParameters", "list": [
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "source_event"}, {"type": "TEMPLATE", "key": "value", "value": "{{Event}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "component"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - component}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "section"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - section}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "cta_text"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - cta_text}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "demo_type"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - demo_type}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "destination"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - destination}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "message_preset"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - message_preset}}"}]}
+          ]}
+        ],
+        "firingTriggerId": ["2"]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "tagId": "3",
+        "name": "GA4 Event - select_promotion Plan",
+        "type": "gaawe",
+        "parameter": [
+          {"type": "TEMPLATE", "key": "measurementId", "value": "{{Const - GA4 Measurement ID}}"},
+          {"type": "TEMPLATE", "key": "eventName", "value": "select_promotion"},
+          {"type": "LIST", "key": "eventParameters", "list": [
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "source_event"}, {"type": "TEMPLATE", "key": "value", "value": "{{Event}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "component"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - component}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "section"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - section}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "cta_text"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - cta_text}}"}]}
+          ]}
+        ],
+        "firingTriggerId": ["3"]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "tagId": "4",
+        "name": "GA4 Event - generate_lead Contact Form",
+        "type": "gaawe",
+        "parameter": [
+          {"type": "TEMPLATE", "key": "measurementId", "value": "{{Const - GA4 Measurement ID}}"},
+          {"type": "TEMPLATE", "key": "eventName", "value": "generate_lead"},
+          {"type": "LIST", "key": "eventParameters", "list": [
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "source_event"}, {"type": "TEMPLATE", "key": "value", "value": "submit_form_contacto"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "component"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - component}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "section"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - section}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "tipo_negocio"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - tipo_negocio}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "cta_text"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - cta_text}}"}]}
+          ]}
+        ],
+        "firingTriggerId": ["4"]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "tagId": "5",
+        "name": "GA4 Event - view_demo_page",
+        "type": "gaawe",
+        "parameter": [
+          {"type": "TEMPLATE", "key": "measurementId", "value": "{{Const - GA4 Measurement ID}}"},
+          {"type": "TEMPLATE", "key": "eventName", "value": "view_demo_page"},
+          {"type": "LIST", "key": "eventParameters", "list": [
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "component"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - component}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "demo_type"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - demo_type}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "page_title"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - page_title}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "page_path"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - page_path}}"}]}
+          ]}
+        ],
+        "firingTriggerId": ["5"]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "tagId": "6",
+        "name": "GA4 Event - generate_lead Demo Form",
+        "type": "gaawe",
+        "parameter": [
+          {"type": "TEMPLATE", "key": "measurementId", "value": "{{Const - GA4 Measurement ID}}"},
+          {"type": "TEMPLATE", "key": "eventName", "value": "generate_lead"},
+          {"type": "LIST", "key": "eventParameters", "list": [
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "source_event"}, {"type": "TEMPLATE", "key": "value", "value": "submit_demo_booking"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "component"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - component}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "demo_type"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - demo_type}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "lead_interest"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - lead_interest}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "has_date"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - has_date}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "destination"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - destination}}"}]}
+          ]}
+        ],
+        "firingTriggerId": ["6"]
+      },
+      {
+        "accountId": "6356083869",
+        "containerId": "252846699",
+        "tagId": "7",
+        "name": "GA4 Event - select_content Interactions",
+        "type": "gaawe",
+        "parameter": [
+          {"type": "TEMPLATE", "key": "measurementId", "value": "{{Const - GA4 Measurement ID}}"},
+          {"type": "TEMPLATE", "key": "eventName", "value": "select_content"},
+          {"type": "LIST", "key": "eventParameters", "list": [
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "source_event"}, {"type": "TEMPLATE", "key": "value", "value": "{{Event}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "component"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - component}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "section"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - section}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "cta_text"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - cta_text}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "demo_type"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - demo_type}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "tab_id"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - tab_id}}"}]},
+            {"type": "MAP", "map": [{"type": "TEMPLATE", "key": "name", "value": "tab_text"}, {"type": "TEMPLATE", "key": "value", "value": "{{DLV - tab_text}}"}]}
+          ]}
+        ],
+        "firingTriggerId": ["7"]
+      }
+    ],
+    "fingerprint": "1779165819848",
+    "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6356083869/containers/252846699/versions/0?apiLink=version"
+  }
+}
