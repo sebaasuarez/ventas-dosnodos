@@ -179,3 +179,54 @@ Cada push incluye `component: 'landing_ventas_dos_nodos'`, `section`, y `cta_tex
 8. **A/B test del precio "Desde"**: probar mostrar el rango completo vs. el "Desde" actual.
 9. **Schema adicional**: `Service` con `offers` para cada plan, y `BreadcrumbList` cuando crezca el sitio.
 10. **PageSpeed real**: pasar Lighthouse en producción (no localhost) y ajustar `Cache-Control` y compresión.
+
+---
+
+## 8. Notas de mantenimiento
+
+### Tipografías
+
+IBM Plex Sans y Mono van **auto-hospedadas** en `assets/fonts/`, con las
+declaraciones `@font-face` incrustadas al inicio de `assets/css/styles.css`.
+Son las mismas familias del sitio principal, que las sirve con `next/font`.
+
+No se cargan desde Google Fonts a propósito: eso costaba dos `preconnect` y
+una hoja de estilos que bloqueaba el renderizado. Solo se incluye el
+subconjunto **latino** — las tildes y la eñe están ahí; `latin-ext` cubre
+lenguas de Europa del este y sería peso muerto.
+
+### Cache busting — importante
+
+`vercel.json` marca CSS y JS como `immutable` por un año. Eso es seguro
+**únicamente** porque las URLs llevan versión (`styles.css?v=11`).
+
+> Si modificas `assets/css/styles.css` o `assets/js/main.js`, **sube el número
+> de versión** en los cuatro HTML (`index`, `terminos`, `privacidad`, `datos`).
+> Si no lo haces, quien ya visitó el sitio seguirá viendo el archivo viejo
+> durante un año.
+
+### Imágenes
+
+El logo del encabezado y del pie usa `logo-dosnodos-400.png` (4,7 KB, paleta
+de 64 colores). El original de 850×430 y 155 KB se conserva porque el JSON-LD
+y las metaetiquetas lo referencian a tamaño completo.
+
+Para arte plano de pocos colores el PNG con paleta gana a WebP: en este logo
+son 4,7 KB contra 21 KB.
+
+### Formulario y CRM
+
+El formulario envía el lead a `https://dosnodos.com.co/api/contact` con
+`source: "ventas"` **antes** de abrir WhatsApp, y aparece en el panel de
+`dosnodos.com.co/admin/leads`. El envío no bloquea la apertura del chat: si
+se esperara la respuesta, el navegador la bloquearía como popup.
+
+Ese endpoint solo acepta orígenes de una lista blanca. Si cambia el dominio
+de esta landing, hay que agregarlo en `ALLOWED_ORIGINS` dentro de
+`app/api/contact/route.ts` del repositorio principal.
+
+### Demos
+
+Las páginas de `demos/` mantienen tipografías y paletas propias a propósito:
+son maquetas de negocios de clientes (café, spa, turismo), no del sistema de
+marca de Dos Nodos. Uniformarlas anularía su función.

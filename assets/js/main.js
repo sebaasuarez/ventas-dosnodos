@@ -294,7 +294,20 @@
         cta_text: 'Enviar y abrir WhatsApp'
       });
 
+      /* El lead se guarda en el CRM de dosnodos.com.co ANTES de abrir WhatsApp.
+         Antes el formulario solo abría el chat: si la persona no llegaba a
+         enviar el mensaje, el contacto se perdía sin dejar rastro. */
+      saveLead({
+        name: fields.nombre.value.trim(),
+        company: fields.negocio.value.trim(),
+        phone: fields.whatsapp.value.trim(),
+        message: (fields.mensaje && fields.mensaje.value.trim()) || '',
+        tipo: fields.tipo.value
+      });
+
       if (status) { status.textContent = 'Abriendo WhatsApp con tu mensaje listo…'; status.classList.add('is-ok'); }
+      /* La ventana se abre de inmediato y en el mismo gesto del clic: si se
+         esperara la respuesta del CRM, el navegador la bloquearía como popup. */
       window.open(buildWaUrl(msg), '_blank', 'noopener');
     });
 
@@ -303,6 +316,34 @@
         if (el.closest('.field').classList.contains('is-invalid')) setError(el.id, false);
       });
     });
+  }
+
+
+  /* ---------- CRM ---------- */
+  var CRM_ENDPOINT = 'https://dosnodos.com.co/api/contact';
+
+  /* Envía el lead al CRM sin bloquear la apertura de WhatsApp. Si falla, se
+     registra en consola y ya: nunca debe impedir que la persona escriba. */
+  function saveLead(data) {
+    var payload = {
+      name: data.name,
+      company: data.company,
+      phone: data.phone,
+      message: (data.tipo ? '[' + data.tipo + '] ' : '') + (data.message || 'Quiere cotizar una landing.'),
+      language: 'es',
+      source: 'ventas'
+    };
+
+    try {
+      fetch(CRM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(function (e) { console.warn('CRM:', e); });
+    } catch (e) {
+      console.warn('CRM:', e);
+    }
   }
 
   /* ---------- Footer year ---------- */

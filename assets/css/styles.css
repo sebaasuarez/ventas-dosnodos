@@ -1,3 +1,79 @@
+/* IBM Plex auto-hospedado, subconjunto latino. Mismas familias que el
+   sitio principal. Va incrustado y no en una hoja aparte: cada hoja de
+   estilos extra bloquea el renderizado. */
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/ibm-plex-mono-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/ibm-plex-mono-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/ibm-plex-mono-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/ibm-plex-sans-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/ibm-plex-sans-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/ibm-plex-sans-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/ibm-plex-sans-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/ibm-plex-serif-400-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* =============================================
    Dos Nodos · Landing
    Dirección: "Blueprint para vender"
@@ -6,54 +82,57 @@
    ============================================= */
 
 :root {
-  /* Marca (mantenidos del sistema oficial) */
-  --brand: #1B3FCC;          /* cobalto, levemente más profundo que #2563EB para superficie drenched */
-  --brand-strong: #1530A6;
-  --brand-soft: #EDEEF8;
-  --accent: #6E2BD9;          /* púrpura de la marca, ligeramente más sobrio */
-  --accent-strong: #5621AE;
+  /* Marca — los valores exactos del sitio principal, sin variantes. */
+  --brand: #2563EB;
+  --brand-strong: #1D4FD8;
+  --brand-soft: #E9E6FB;
+  --accent: #9333EA;          /* morado de marca */
+  --accent-strong: #7C22CE;   /* el tono de los CTA */
 
-  /* Papel y tinta — tintados hacia el azul de la marca, nunca puro blanco/negro */
-  --paper: #F4F4F8;    /* fondo base ≈ #F4F4F8, cream con tinte cobalto */
-  --paper-2: #ECECF2;    /* superficie alterna */
-  --paper-3: #FBFBFE;    /* tarjeta */
-  --ink: #1B1E2A;        /* texto principal ≈ #1B1E2A */
-  --ink-2: #494C5B;      /* secundario */
-  --ink-3: #7E808B;      /* terciario / metadata */
-  --rule: #DCDCE4;        /* borde tenue */
-  --rule-2: #CACAD3;     /* borde énfasis */
+  /* Papel y tinta — blanco y lilas muy claros, como el principal. El fondo
+     cobalto de lado a lado se retiró: el brief pedía sin fondos saturados. */
+  --paper: #FFFFFF;
+  --paper-2: #F5F3FC;
+  --paper-3: #F1EFFA;
+  --ink: #0C0A18;
+  --ink-2: #5A5570;
+  --ink-3: #6A667E;
+  --rule: #EDEAF6;
+  --rule-2: #E4E1F0;
 
-  /* Modo "drenched" cobalto */
-  --cobalt-1: #1B3FCC;
-  --cobalt-2: #142E99;
-  --cobalt-3: #0E215D;
-  --on-cobalt: #F8F8FB;
-  --on-cobalt-mute: #C8CAD6;
+  /* Superficies oscuras: solo para el pie y bloques puntuales, no para el hero. */
+  --cobalt-1: #141127;
+  --cobalt-2: #0C0A18;
+  --cobalt-3: #08060F;
+  --on-cobalt: #FFFFFF;
+  --on-cobalt-mute: #C9C6DE;
 
-  /* Acentos funcionales */
-  --signal: #B4F032;          /* lime "online" — sólo para signal, no decoración */
-  --signal-ink: #2E4A0A;
+  /* Acentos funcionales. El lima se reemplaza por el morado de marca: era el
+     único color del sitio que no pertenecía al sistema. */
+  --signal: #7C22CE;
+  --signal-ink: #FFFFFF;
   --wa: #25D366;
   --wa-strong: #1FB257;
   --wa-bg: #DCFCE7;
-  --danger: #DC2C2C;
+  --danger: #DC2626;
 
-  /* Tipografía */
-  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
+  /* Tipografía — IBM Plex, igual que el principal. */
+  --font-display: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-serif: "IBM Plex Serif", Georgia, serif;
 
   /* Layout */
   --max-w: 1180px;
-  --shell-pad: clamp(20px, 4vw, 40px);
-  --section-pad: clamp(64px, 9vw, 120px);
+  --shell-pad: clamp(20px, 5vw, 40px);
+  --section-pad: clamp(56px, 8vw, 96px);
 
-  /* Sombras: discretas, una sola estrategia (paper + sombra muy suave) */
-  --shadow-soft: 0 1px 0 var(--rule), 0 12px 32px -16px rgba(20,28,68,.12);
-  --shadow-hover: 0 1px 0 var(--rule), 0 24px 50px -22px rgba(20,28,68,.22);
+  /* Sombras: tintadas al morado de marca, como en el principal. */
+  --shadow-soft: 0 1px 0 var(--rule), 0 12px 32px -16px rgba(20, 12, 40, .10);
+  --shadow-hover: 0 1px 0 var(--rule), 0 24px 50px -22px rgba(20, 12, 40, .18);
 
   /* Motion */
-  --ease: cubic-bezier(.22, 1, .36, 1);
+  --ease: cubic-bezier(.21, .47, .32, .98);
   --ease-quart: cubic-bezier(.5, 0, .12, 1);
 }
 
@@ -154,7 +233,7 @@ h1, h2, h3, .display-h2 {
   display: block;
   opacity: 0;
   transform: translateY(20px);
-  animation: hero-in .9s var(--ease) forwards;
+  animation: hero-in .5s var(--ease) forwards;
 }
 .hero-line[data-i="0"] { animation-delay: .15s; }
 .hero-line[data-i="1"] { animation-delay: .3s; }
@@ -233,6 +312,8 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   height: 1px;
   background: var(--ink-3);
 }
+.hero .kicker-on-dark { color: var(--ink-2); }
+.hero .kicker-on-dark::before { background: var(--accent); }
 .kicker-on-dark { color: var(--on-cobalt-mute); }
 .kicker-on-dark::before { background: var(--on-cobalt-mute); }
 
@@ -376,7 +457,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 .status-dot {
   width: 7px; height: 7px; border-radius: 50%;
   background: var(--signal);
-  box-shadow: 0 0 0 3px rgba(168,220,68,.35);
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, .22);
 }
 .status-sep { opacity: .5; }
 
@@ -415,19 +496,19 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 .btn:active { transform: translateY(0.5px); }
 
 .btn-primary {
-  --btn-bg: var(--brand);
+  --btn-bg: transparent;
   --btn-fg: #fff;
   position: relative;
   isolation: isolate;
+  background-image: linear-gradient(to right, var(--accent-strong), var(--brand));
+  box-shadow: 0 12px 28px -12px rgba(124, 34, 206, .65);
 }
 .btn-primary:hover {
-  --btn-bg: var(--brand-strong);
   --btn-fg: #fff;
-  box-shadow: 0 0 0 3px rgba(180,240,50,.35), 0 12px 28px -10px rgba(30,60,180,.45);
   transform: translateY(-1px);
 }
 .btn-primary:focus-visible {
-  box-shadow: 0 0 0 3px rgba(180,240,50,.5), 0 12px 28px -10px rgba(30,60,180,.45);
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, .35), 0 12px 28px -12px rgba(124, 34, 206, .65);
 }
 
 .btn-secondary {
@@ -483,12 +564,17 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 .section-head-left .section-lead { margin-left: 0; }
 
 /* ============================================
-   HERO — Drenched cobalt
+   HERO — claro, con halos de marca
    ============================================ */
+/* Era un bloque cobalto de lado a lado. Ahora es blanco con dos halos muy
+   tenues, el mismo recurso del hero del sitio principal. */
 .hero {
   position: relative;
-  color: var(--on-cobalt);
-  background: linear-gradient(180deg, var(--cobalt-1) 0%, var(--cobalt-2) 100%);
+  color: var(--ink);
+  background:
+    radial-gradient(680px 340px at 15% 0%, rgba(147, 51, 234, .13), transparent 66%),
+    radial-gradient(720px 360px at 88% 6%, rgba(37, 99, 235, .13), transparent 68%),
+    var(--paper);
   overflow: hidden;
   padding: clamp(70px, 9vw, 120px) 0 clamp(56px, 8vw, 96px);
 }
@@ -499,51 +585,15 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   overflow: hidden;
   pointer-events: none;
 }
-.hero-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-}
-.hero-orb-1 {
-  width: 560px; height: 560px;
-  background: #6E2BD9;
-  top: -160px; right: -120px;
-  opacity: .55;
-  animation: orb-drift-1 18s ease-in-out infinite;
-}
-.hero-orb-2 {
-  width: 460px; height: 460px;
-  background: #2563EB;
-  bottom: -140px; left: -120px;
-  opacity: .55;
-  animation: orb-drift-2 22s ease-in-out infinite;
-}
-.hero-orb-3 {
-  width: 360px; height: 360px;
-  background: #B4F032;
-  top: 30%; left: 35%;
-  opacity: .18;
-  animation: orb-drift-3 26s ease-in-out infinite;
-}
-@keyframes orb-drift-1 {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  33% { transform: translate3d(-80px, 60px, 0) scale(1.08); }
-  66% { transform: translate3d(60px, 120px, 0) scale(.95); }
-}
-@keyframes orb-drift-2 {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(120px, -80px, 0) scale(1.1); }
-}
-@keyframes orb-drift-3 {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  25% { transform: translate3d(60px, -40px, 0); }
-  50% { transform: translate3d(-50px, 30px, 0); }
-  75% { transform: translate3d(40px, 70px, 0); }
-}
+
+
+
+
+
+
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-orb { animation: none !important; }
+  
 }
 .hero::before {
   /* grid blueprint */
@@ -586,8 +636,8 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   .hero-grid { grid-template-columns: 1.15fr .85fr; }
 }
 
-.hero-copy { color: var(--on-cobalt); }
-.hero-copy h1, .hero-copy .hero-title { color: var(--on-cobalt); }
+.hero-copy { color: var(--ink); }
+.hero-copy h1, .hero-copy .hero-title { color: var(--ink); }
 
 .hero-meta {
   display: inline-flex;
@@ -596,11 +646,11 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   font-family: var(--font-mono);
   font-size: .78rem;
   letter-spacing: 0.05em;
-  color: var(--on-cobalt-mute);
+  color: var(--ink-2);
   margin-bottom: clamp(20px, 3vw, 32px);
   padding: 6px 12px 6px 8px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
   border-radius: 999px;
 }
 .meta-idx {
@@ -612,13 +662,13 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 .hero-sub {
   font-family: var(--font-body);
   font-size: clamp(1.05rem, 0.6vw + 1rem, 1.22rem);
-  color: var(--on-cobalt-mute);
+  color: var(--ink-2);
   max-width: 52ch;
   margin: 0 0 28px;
   line-height: 1.5;
   opacity: 0;
   transform: translateY(12px);
-  animation: hero-in .8s var(--ease) .6s forwards;
+  animation: hero-in .5s var(--ease) .06s forwards;
 }
 
 .hero-actions {
@@ -628,7 +678,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   margin-bottom: 36px;
   opacity: 0;
   transform: translateY(12px);
-  animation: hero-in .8s var(--ease) .75s forwards;
+  animation: hero-in .5s var(--ease) .12s forwards;
 }
 
 .hero-specs {
@@ -644,7 +694,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   -webkit-backdrop-filter: blur(6px);
   opacity: 0;
   transform: translateY(12px);
-  animation: hero-in .8s var(--ease) .9s forwards;
+  animation: hero-in .5s var(--ease) .18s forwards;
 }
 @media (min-width: 580px) {
   .hero-specs { grid-template-columns: repeat(4, 1fr); }
@@ -669,7 +719,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--on-cobalt-mute);
+  color: var(--ink-3);
   margin-bottom: 6px;
 }
 .hero-specs dd {
@@ -677,12 +727,12 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--on-cobalt);
+  color: var(--ink);
 }
 .hero-specs dd span {
   font-family: var(--font-mono);
   font-size: .7rem;
-  color: var(--on-cobalt-mute);
+  color: var(--ink-3);
   font-weight: 500;
   margin-left: 2px;
 }
@@ -696,12 +746,12 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   min-height: 480px;
   opacity: 0;
   transform: translateY(20px);
-  animation: hero-in 1s var(--ease) 1.05s forwards;
+  animation: hero-in .6s var(--ease) .24s forwards;
 }
 .hero-grid-bg {
   position: absolute;
   inset: -40px;
-  background: radial-gradient(closest-side, rgba(95,118,255,.25), transparent 70%);
+  background: radial-gradient(closest-side, rgba(147, 51, 234, .16), transparent 70%);
   filter: blur(40px);
   pointer-events: none;
 }
@@ -1130,7 +1180,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   font-size: 1.15rem;
 }
 .niches li:nth-child(2n) .niches-icon { background: rgba(110,43,217,.10); color: var(--accent); }
-.niches li:nth-child(4n) .niches-icon { background: rgba(180,240,50,.18); color: var(--signal-ink); }
+.niches li:nth-child(4n) .niches-icon { background: rgba(147, 51, 234, .12); color: var(--accent-strong); }
 
 /* ============================================
    05 — DEMOS
@@ -1796,7 +1846,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 .foot-link {
   color: var(--signal);
   text-decoration: underline;
-  text-decoration-color: rgba(180, 240, 50, .35);
+  text-decoration-color: rgba(147, 51, 234, .38);
   text-underline-offset: 2px;
   transition: text-decoration-color .2s var(--ease);
 }
@@ -1861,7 +1911,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   display: block;
   width: var(--p, 0%);
   height: 100%;
-  background: linear-gradient(90deg, #1B3FCC 0%, #6E2BD9 60%, #B4F032 100%);
+  background: linear-gradient(90deg, #9333EA 0%, #2563EB 100%);
   transition: width .12s linear;
   box-shadow: 0 0 14px rgba(110,43,217,.6);
 }
@@ -1878,7 +1928,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   margin: 24px 0 0;
   opacity: 0;
   transform: translateY(12px);
-  animation: hero-in .8s var(--ease) 1.1s forwards;
+  animation: hero-in .5s var(--ease) .3s forwards;
 }
 .hero-trust li {
   display: inline-flex;
@@ -1895,9 +1945,9 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   transition: background .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease);
 }
 .hero-trust li:hover {
-  background: rgba(180,240,50,.12);
-  border-color: rgba(180,240,50,.4);
-  color: #DFF59A;
+  background: rgba(147, 51, 234, .10);
+  border-color: rgba(147, 51, 234, .32);
+  color: var(--accent-strong);
 }
 .hero-trust li svg { color: var(--signal); flex-shrink: 0; }
 
@@ -1944,7 +1994,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 }
 .stat:hover { background: #F4F5FB; }
 .stat:hover::after { width: 100%; }
-.stat-accent::after { background: linear-gradient(90deg, var(--signal), #DFF59A); }
+.stat-accent::after { background: linear-gradient(90deg, #9333EA, #2563EB); }
 @media (min-width: 1040px) {
   .stat { border-bottom: none; }
   .stat:last-child { border-right: none; }
@@ -1984,7 +2034,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 }
 .stat-accent { background: var(--ink); color: var(--on-cobalt); }
 .stat-accent:hover { background: var(--cobalt-2); }
-.stat-accent .stat-num { color: var(--signal); }
+.stat-accent .stat-num { color: #A855F7; }
 .stat-accent .stat-label, .stat-accent .stat-foot { color: var(--on-cobalt-mute); }
 
 /* ============================================
@@ -2058,8 +2108,8 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   font-weight: 500;
   letter-spacing: .04em;
   text-transform: uppercase;
-  color: var(--brand);
-  background: rgba(27, 63, 204, .08);
+  color: var(--accent-strong);
+  background: rgba(147, 51, 234, .10);
   padding: 5px 10px;
   border-radius: 999px;
 }
@@ -2160,4 +2210,16 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 @media (max-width: 480px) {
   .hero-actions .btn { flex: 1 1 100%; }
   .foot-bottom { justify-content: flex-start; }
+}
+
+
+/* ============================================
+   Texto con degradado de marca
+   ============================================ */
+/* Equivale a .dn-grad-text del sitio principal. */
+.grad-text {
+  background: linear-gradient(120deg, #9333EA, #2563EB);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
