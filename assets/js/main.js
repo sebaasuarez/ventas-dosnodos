@@ -102,7 +102,7 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       thread.innerHTML =
         '<div class="wa-msg them" style="opacity:1;transform:none">Hola, vi su landing. ¿Cuánto cuesta una para mi café?<span class="wa-time">10:24</span></div>' +
-        '<div class="wa-msg me"   style="opacity:1;transform:none">¡Hola! Desde $700.000. Te paso info.<span class="wa-time">10:24 <span class="wa-ticks">✓✓</span></span></div>' +
+        '<div class="wa-msg me"   style="opacity:1;transform:none">¡Hola! Desde $700.000. Te paso info.<span class="wa-time">10:24 <span class="wa-ticks"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ico-ticks"/></svg></span></span></div>' +
         '<div class="wa-msg them" style="opacity:1;transform:none">Perfecto, quiero agendar 🙌<span class="wa-time">10:25</span></div>';
       return;
     }
@@ -170,7 +170,7 @@
     function appendMessage(side, text) {
       const el = document.createElement('div');
       el.className = 'wa-msg ' + side;
-      const ticks = side === 'me' ? ' <span class="wa-ticks">✓✓</span>' : '';
+      const ticks = side === 'me' ? ' <span class="wa-ticks"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ico-ticks"/></svg></span>' : '';
       el.innerHTML = escapeHTML(text) + '<span class="wa-time">' + makeTime() + ticks + '</span>';
       thread.appendChild(el);
       trimOverflow();

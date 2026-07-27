@@ -13,9 +13,14 @@
   <link rel="icon" href="/assets/img/favicon.ico" sizes="any">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=5">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20">
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="ico-arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="ico-heart" viewBox="0 0 24 24"><path d="M12 20.4 4.6 13.2a4.6 4.6 0 0 1 6.5-6.5l.9.9.9-.9a4.6 4.6 0 1 1 6.5 6.5Z" fill="currentColor"/></symbol>
+  </defs></svg>
+
 
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -25,7 +30,7 @@
       <a href="/" class="brand" aria-label="Dos Nodos, inicio">
         <img src="/assets/img/logo-dosnodos-400.png" alt="Dos Nodos" width="170" height="86" class="brand-logo" decoding="async">
       </a>
-      <a href="/" class="btn btn-secondary btn-header" style="display:inline-flex">← Volver al inicio</a>
+      <a href="/" class="btn btn-secondary btn-header" style="display:inline-flex"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ico-arrow-left"/></svg> Volver al inicio</a>
     </div>
   </header>
 
@@ -102,7 +107,7 @@
           <li>Instagram: <a href="https://www.instagram.com/somosdosnodos" target="_blank" rel="noopener">@somosdosnodos</a></li>
         </ul>
 
-        <a href="/" class="legal-back">← Volver al inicio</a>
+        <a href="/" class="legal-back"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ico-arrow-left"/></svg> Volver al inicio</a>
       </article>
     </div>
   </main>
@@ -110,7 +115,7 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container foot-bottom">
       <small>&copy; <span id="year"></span> Dos Nodos · <span class="mono">v.2026</span></small>
-      <small class="foot-build">Hecho con <span class="foot-heart" aria-label="amor">❤️</span> por <a href="https://dosnodos.com.co/" target="_blank" rel="noopener" class="foot-link">dosnodos.com.co</a></small>
+      <small class="foot-build">Hecho con <span class="foot-heart" role="img" aria-label="amor"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ico-heart"/></svg></span> por <a href="https://dosnodos.com.co/" target="_blank" rel="noopener" class="foot-link">dosnodos.com.co</a></small>
     </div>
   </footer>
 
