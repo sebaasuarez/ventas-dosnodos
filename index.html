@@ -41,8 +41,8 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="preload" as="image" href="/assets/img/logo-dosnodos-400.png" fetchpriority="high">
-  <link rel="preload" as="style" href="/assets/css/styles.css?v=11">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=11">
+  <link rel="preload" as="style" href="/assets/css/styles.css?v=15">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=15">
 
   <script type="application/ld+json">
   {
@@ -169,6 +169,15 @@
 
     <!-- ============ 00 — HERO (drenched) ============ -->
     <section class="hero" id="top" aria-labelledby="hero-title">
+      <!-- Efecto "lamp": dos conos cónicos y una línea que hacen que la luz
+           parezca nacer del borde superior. Es puramente decorativo, así que
+           va oculto para lectores de pantalla. -->
+      <div class="lamp" aria-hidden="true">
+        <div class="lamp-cone lamp-cone-left"></div>
+        <div class="lamp-cone lamp-cone-right"></div>
+        <div class="lamp-line"></div>
+        <div class="lamp-glow"></div>
+      </div>
       <div class="hero-grid">
         <div class="hero-copy">
           <div class="hero-meta">

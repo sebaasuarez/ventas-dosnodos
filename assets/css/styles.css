@@ -111,8 +111,15 @@
      único color del sitio que no pertenecía al sistema. */
   --signal: #7C22CE;
   --signal-ink: #FFFFFF;
-  --wa: #25D366;
-  --wa-strong: #1FB257;
+  /* Verde de WhatsApp accesible. El #25D366 de la marca da 1.98 con contenido
+     blanco encima Y 1.98 contra el fondo blanco de la página: falla WCAG 1.4.3
+     y 1.4.11 en las dos direcciones, así que el botón flotante casi no se
+     distinguía. Este tono da 5.22 en ambas y sigue leyéndose como WhatsApp.
+     El brillante se conserva solo para adornos dentro de la maqueta del
+     teléfono, que es una ilustración y no transporta información. */
+  --wa: #0F7A6C;
+  --wa-strong: #0B6154;
+  --wa-bright: #25D366;
   --wa-bg: #DCFCE7;
   --danger: #DC2626;
 
@@ -521,7 +528,10 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 .btn-ghost {
   --btn-bg: transparent;
   --btn-fg: var(--ink);
-  --btn-bd: var(--rule-2);
+  /* #E4E1F0 daba 1.29 contra el blanco. WCAG 1.4.11 pide 3:1 para lo que
+     identifica visualmente un control, y acá el borde es lo único que lo
+     delimita. Este tono da 3.52. */
+  --btn-bd: #8B84A8;
 }
 .btn-ghost:hover { --btn-bg: var(--paper-2); --btn-bd: var(--ink); }
 
@@ -562,6 +572,114 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   font-size: 1.05rem;
 }
 .section-head-left .section-lead { margin-left: 0; }
+
+
+/* ============================================
+   LAMP — luz que nace del borde superior del hero
+   ============================================ */
+/* Adaptación del componente de React con framer-motion a CSS puro: este sitio
+   es estático y no tiene build.
+   Los conos se recortan con clip-path en vez de conic-gradient. El original
+   los arma con gradientes cónicos más dos máscaras internas; sin esas máscaras
+   el cónico deja bordes rectos y se ve como un rectángulo, no como un haz.
+   El clip-path da el triángulo exacto y el degradado radial nace del vértice.
+   Todo lo que anima es transform y opacity, que el compositor resuelve sin
+   repintar. */
+
+.lamp {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: clamp(200px, 24vw, 320px);
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+}
+
+.lamp-cone {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: min(32rem, 48vw);
+  opacity: 0;
+  /* Desenfoque generoso: sin él la diagonal del clip-path se ve como un corte
+     recto en lugar de un haz. */
+  filter: blur(34px);
+  animation: lamp-open .9s var(--ease) .15s forwards;
+}
+/* El vértice de cada cono es la esquina superior que toca el centro. */
+.lamp-cone-left {
+  right: calc(50% - 46px);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  background: radial-gradient(farthest-corner at 100% 0, rgba(147, 51, 234, .42), transparent 74%);
+  transform-origin: 100% 0;
+}
+.lamp-cone-right {
+  left: calc(50% - 46px);
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  background: radial-gradient(farthest-corner at 0 0, rgba(37, 99, 235, .42), transparent 74%);
+  transform-origin: 0 0;
+}
+
+/* La línea de la que sale la luz. */
+.lamp-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 2px;
+  width: min(28rem, 66vw);
+  transform: translateX(-50%) scaleX(.35);
+  transform-origin: center;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #9333EA 24%, #2563EB 76%, transparent);
+  opacity: 0;
+  animation: lamp-line-in .9s var(--ease) .2s forwards;
+}
+
+/* Halo difuso apenas bajo la línea. */
+.lamp-glow {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  height: 130px;
+  width: min(24rem, 54vw);
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: radial-gradient(closest-side, rgba(147, 51, 234, .50), rgba(37, 99, 235, .20) 62%, transparent);
+  filter: blur(40px);
+  opacity: 0;
+  animation: lamp-glow-in 1s var(--ease) .1s forwards;
+}
+
+@keyframes lamp-open {
+  from { opacity: 0; transform: scaleX(.5); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+@keyframes lamp-line-in {
+  from { opacity: 0; transform: translateX(-50%) scaleX(.35); }
+  to   { opacity: 1; transform: translateX(-50%) scaleX(1); }
+}
+@keyframes lamp-glow-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Sin animación el efecto se muestra ya abierto, no desaparece. */
+@media (prefers-reduced-motion: reduce) {
+  .lamp-cone,
+  .lamp-line,
+  .lamp-glow { animation: none; opacity: 1; }
+  .lamp-cone-left,
+  .lamp-cone-right { transform: none; }
+  .lamp-line { transform: translateX(-50%); }
+}
+
+@media (max-width: 640px) {
+  .lamp { height: 170px; }
+  .lamp-glow { height: 96px; top: -48px; filter: blur(30px); }
+  .lamp-cone { filter: blur(14px); }
+}
 
 /* ============================================
    HERO — claro, con halos de marca
@@ -816,7 +934,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 .wa-online {
   display: inline-block;
   width: 6px; height: 6px;
-  background: #25D366;
+  background: var(--wa-bright);
   border-radius: 50%;
 }
 
@@ -1866,7 +1984,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   color: #fff;
   display: inline-flex;
   align-items: center; justify-content: center;
-  box-shadow: 0 20px 40px -10px rgba(40,140,80,.45);
+  box-shadow: 0 18px 36px -12px rgba(11, 97, 84, .55);
   transition: background .25s var(--ease), transform .25s var(--ease);
 }
 .fab-wa::before {
@@ -1874,7 +1992,7 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  border: 1.5px solid rgba(120,210,140,.5);
+  border: 1.5px solid rgba(15, 122, 108, .45);
   animation: pulse-ring 2.4s ease-out 3;
 }
 @keyframes pulse-ring {
