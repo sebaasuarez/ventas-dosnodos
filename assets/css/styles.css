@@ -1469,10 +1469,19 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   gap: 16px;
   align-items: stretch;
 }
-@media (min-width: 900px) {
+/* Con cuatro planes, tres columnas dejaban uno solo en la fila de abajo. En
+   pantallas intermedias se reparten de a dos y solo a partir de 1180px caben
+   los cuatro sin apretar el texto. */
+@media (min-width: 700px) {
   .plans {
-    grid-template-columns: 1fr 1.2fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+  }
+}
+@media (min-width: 1180px) {
+  .plans {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
     align-items: stretch;
   }
 }
@@ -1607,7 +1616,9 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   transform: translateY(-12px);
   box-shadow: 0 30px 70px -30px rgba(15,30,90,.5);
 }
-@media (max-width: 899px) { .plan-pro { transform: none; } }
+/* El realce solo tiene sentido cuando los cuatro están en una fila; apilados o
+   de a dos, levantar uno rompe la alineación en vez de destacarlo. */
+@media (max-width: 1179px) { .plan-pro { transform: none; } }
 .plan-pro:hover { background: var(--cobalt-2); border-color: var(--cobalt-2); }
 .plan-pro .plan-name { color: var(--signal); }
 .plan-pro .plan-price strong { color: var(--on-cobalt); }
@@ -1634,6 +1645,35 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
   padding: 6px 12px;
   border-radius: 999px;
   border: 1px solid var(--accent-strong);
+}
+
+/* Variante en negativo para el plan de entrada. Va con fondo propio porque la
+   etiqueta se monta sobre el borde de la tarjeta y queda a caballo entre dos
+   fondos: sin él, el contraste dependería de dónde caiga.
+   Texto 7.05 y borde 6.42 contra la página; ambos por encima del mínimo. */
+.plan-flag-quiet {
+  background: var(--paper);
+  color: var(--accent-strong);
+}
+
+/* Ajustes de la fila de cuatro. Van acá, después de las reglas base de .plan:
+   un media query no añade especificidad, así que puestos antes los ganaba
+   la regla general por orden de aparición. */
+@media (min-width: 1180px) {
+  .plan {
+    padding: clamp(20px, 2vw, 28px);
+  }
+  /* A 273px de tarjeta, el precio a 41.6px empujaba "COP" a una tercera
+     línea y abría un hueco en mitad de la tarjeta. */
+  .plan-price strong {
+    font-size: clamp(1.7rem, 2.1vw, 2.1rem);
+  }
+  /* "Desde" baja a su propia línea a propósito. Con los tres en una fila
+     quedaban 206px ocupados de 207 disponibles: cabía por un pixel y se
+     rompía con cualquier precio de una cifra más. */
+  .plan-price .plan-from {
+    flex-basis: 100%;
+  }
 }
 .plan-flag svg { color: var(--signal-ink); }
 
