@@ -2399,3 +2399,14 @@ p { margin: 0 0 12px; color: var(--ink-2); max-width: 65ch; }
 @media (min-width: 960px) {
   .hero-grid-centered { grid-template-columns: none; }
 }
+
+/* Enlace al sitio principal desde la navegación. */
+.nav-out {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+.nav-out .ico { width: 13px; height: 13px; }
+.foot-nav .ico { width: 12px; height: 12px; margin-left: 4px; }
